@@ -1,0 +1,21 @@
+{
+    "model": {
+        "Qwen2.5-VL-Instruct": {
+            "class": "Qwen2VLChat",
+            "model_path": "./models/Qwen2.5-VL-3B-Instruct",
+            "min_pixels": 1003520,
+            "max_pixels": 12845056,
+            "use_custom_prompt": false
+        }
+    },
+    "data": {
+        "MathVista": {
+            "class": "MathVista",
+            "dataset": "MathVista_MINI"
+        },
+        "MathVision": {
+            "class": "MathVision",
+            "dataset": "MathVision"
+        }
+    }
+}

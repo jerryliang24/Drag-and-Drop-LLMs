@@ -1,0 +1,42 @@
+### model
+model_name_or_path: ../models/Qwen2.5-1.5B-Instruct
+trust_remote_code: true
+flash_attn: fa2
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 16
+lora_target: all
+
+### dataset
+dataset: LLaMA-Python-Codes-30K # video: mllm_video_demo
+template: qwen
+cutoff_len: 4096
+max_samples: 10000
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: saves/coding1.5B/LLaMA-Python-Codes-30K
+logging_steps: 10
+save_steps: 200
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4
+num_train_epochs: 15.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.01
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: False
+### eval
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 500

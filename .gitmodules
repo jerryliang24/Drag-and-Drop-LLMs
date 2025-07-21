@@ -1,0 +1,6 @@
+[submodule "benchmark/LiveCodeBench/LiveCodeBench"]
+	path = benchmark/LiveCodeBench/LiveCodeBench
+	url = https://github.com/LiveCodeBench/LiveCodeBench.git
+[submodule "benchmark/human-eval/human-eval"]
+	path = benchmark/human-eval/human-eval
+	url = https://github.com/openai/human-eval.git

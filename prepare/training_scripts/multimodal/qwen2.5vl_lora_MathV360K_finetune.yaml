@@ -1,0 +1,44 @@
+### model
+model_name_or_path: ../models/Qwen2.5VL-3B-Instruct
+image_max_pixels: 262144
+video_max_pixels: 16384
+trust_remote_code: true
+flash_attn: fa2
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 16
+lora_target: all
+
+### dataset
+dataset: MathV360K  # video: mllm_video_demo
+template: qwen2_vl
+cutoff_len: 2048
+max_samples: 100000
+overwrite_cache: true
+preprocessing_num_workers: 32
+
+### output
+output_dir: ./data/vllm3B
+logging_steps: 10
+save_steps: 1
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4
+num_train_epochs: 5.20
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: saves/vllm3B/checkpoint-800
+### eval
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 500

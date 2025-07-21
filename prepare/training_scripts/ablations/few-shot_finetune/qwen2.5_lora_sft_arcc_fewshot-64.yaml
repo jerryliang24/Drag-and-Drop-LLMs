@@ -1,0 +1,36 @@
+### model
+model_name_or_path:  ../models/Qwen2.5-0.5B-Instruct
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_target: all
+
+### dataset
+dataset: ARC-c # video: mllm_video_demo
+template: qwen
+cutoff_len: 2048
+max_samples: 64
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: saves/few-shot/ARC-c_64shot
+logging_steps: 10
+save_steps: 16
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 1
+learning_rate: 1.0e-4
+num_train_epochs: 3
+lr_scheduler_type: cosine
+warmup_ratio: 0.01
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: False
