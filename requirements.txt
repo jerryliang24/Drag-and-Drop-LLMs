@@ -1,6 +1,5 @@
 # python==3.12
 
-torch==2.5.1
 positional_encodings[pytorch]
 transformers==4.49.0
 bitsandbytes
