@@ -1,0 +1,212 @@
+{
+  "Math-Vista":
+{
+  "file_name": "Math-Vista.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}},
+  "Math-Vision":
+{
+  "file_name": "Math-Vision.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}},
+  "science-dataset":
+{
+  "file_name": "science-dataset.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}},
+  "Law_Knowledge":
+  {
+    "file_name": "Law_Knowledge.json",
+    "columns": {"prompt":"prompt",
+    "response":"response",
+    "system":"system"}},
+  "GSM8K":{
+    "file_name": "GSM8K.json",
+    "columns": {"prompt":"prompt"}},
+  
+"MathV360K":{
+  "file_name": "MathV360K.json",
+  "formatting": "sharegpt",
+  "columns": {
+    "messages": "conversations",
+    "images": "image"}},
+
+"Math-IIO-68K-Mini":{
+  "file_name": "Math-IIO-68K-Mini.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}},
+
+"Math-Plus":{
+  "file_name": "Math-Plus.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}},
+  
+"ToT-Math-V1":{
+  "file_name": "ToT-Math-V1.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+  } ,
+"Mu-Math":{
+  "file_name": "Mu-Math.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+  } ,
+"Math_QA":{
+  "file_name": "Math_QA.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+  } ,
+"Competition_Math":{
+  "file_name": "Competition_Math.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+  } ,
+"Evol-Instruct-Code-80K-V1":{
+"file_name": "Evol-Instruct-Code-80K-V1.json",
+"columns": {"prompt":"prompt",
+"response":"response",
+"system":"system"}
+} ,
+"Code-74k-ShareGPT":{
+"file_name": "Code-74k-ShareGPT.json",
+"columns": {"prompt":"prompt",
+"response":"response",
+"system":"system"}
+} ,
+"CodeAlpaca-20K":{
+"file_name": "CodeAlpaca-20K.json",
+"columns": {"prompt":"prompt",
+"response":"response",
+"system":"system"}
+} ,
+"Apps":{
+"file_name": "Apps.json",
+"columns": {"prompt":"prompt",
+"response":"response",
+"system":"system"}
+} ,
+"Glaive-Code-Assistant-V2":{
+"file_name": "Glaive-Code-Assistant-V2.json",
+"columns": {"prompt":"prompt",
+"response":"response",
+"system":"system"}
+} ,
+"LLaMA-Python-Codes-30K":{
+"file_name": "LLaMA-Python-Codes-30K.json",
+"columns": {"prompt":"prompt",
+"response":"response",
+"system":"system"}
+} ,
+"Python-Codes-25K":{
+"file_name": "Python-Codes-25K.json",
+"columns": {"prompt":"prompt",
+"response":"response",
+"system":"system"}
+} ,
+"Rosetta-Code":{
+"file_name": "Rosetta-Code.json",
+"columns": {"prompt":"prompt",
+"response":"response",
+"system":"system"}
+} ,
+"BoolQ_test":{
+"file_name": "BoolQ_validation.json",
+"columns": {"prompt":"prompt",
+"response":"response",
+"system":"system"}
+} ,
+"PIQA_test":{
+  "file_name": "PIQA_test.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+"HellaSwag_test": {
+  "file_name": "HellaSwag_validation.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+"WinoGrande_test": {
+  "file_name": "WinoGrande_validation.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+"ARC-e_test": {
+  "file_name": "ARC-e_test.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+"ARC-c_test":{
+  "file_name": "ARC-c_test.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+"OBQA_test":{
+  "file_name": "OBQA_test.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+"BoolQ":{
+  "file_name": "BoolQ_train.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+
+"PIQA":{
+  "file_name": "PIQA_train.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+
+"HellaSwag": {
+  "file_name": "HellaSwag_train.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+
+
+"ARC-e": {
+  "file_name": "ARC-e_train.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+
+"WinoGrande": {
+  "file_name": "WinoGrande_train.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+
+
+"ARC-c":{
+  "file_name": "ARC-c_train.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+} ,
+
+"OBQA":{
+  "file_name": "OBQA_train.json",
+  "columns": {"prompt":"prompt",
+  "response":"response",
+  "system":"system"}
+}}

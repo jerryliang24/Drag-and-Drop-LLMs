@@ -23,13 +23,8 @@
 data/
 models/
 results/
+!prepare/data/
 
-/datasets/image2sd21loraadapter/sd21_model/
-/datasets/image2sd21loraadapter/pytorchlpips_repo/lpips/weights
-/datasets/image2yolov8ldetection/dataset_indices.pkl
-/datasets/image2yolov8ldetection/structure.pt
-/datasets/image2yolov8ldetection/yolo11n.pt
-/datasets/config.json
 outputs/*
 tmp/*
 .cache/*

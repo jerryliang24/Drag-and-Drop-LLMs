@@ -1,0 +1,914 @@
+[
+    {
+        "prompt": "How many different digits can you find in this picture?\n<image1>"
+    },
+    {
+        "prompt": "Which number do you have to write in the last daisy?\n<image1>"
+    },
+    {
+        "prompt": "Misty the cat has five kittens: two of them are striped, one spotty, the rest of them are absolutely white. In which picture can we see the kittens of Misty, knowing that the ears of one of them are of different colour?\n<image1>"
+    },
+    {
+        "prompt": "How many bricks are missing in the wall?\n<image1>"
+    },
+    {
+        "prompt": "The sums of the all the three numbers on each side of the triangle are equal. Two numbers happened to be stained with ink. How much is the sum of these two numbers?\n<image1>"
+    },
+    {
+        "prompt": "Four people can be seated at a square table. How many people at most could be seated if we pushed four tables of this kind together in one row?\n<image1>"
+    },
+    {
+        "prompt": "Mike has built a construction, shown in the upper picture, from equal cubes. Lily has taken several cubes out of it, thus Mike's construction became such as we see in the lower picture. How many cubes has Lily taken?\n<image1>"
+    },
+    {
+        "prompt": "How many points are there in the three unseen sides of dice?\n<image1>"
+    },
+    {
+        "prompt": "How many plums (see the picture) weigh as much as an apple?\n<image1>"
+    },
+    {
+        "prompt": "Tom bought a chocolate heart (see the picture) to Mary on her birthday.\n<image1>\nHow many grams did the chocolate weigh, if each square weighs 10 grams?"
+    },
+    {
+        "prompt": "The ladybird would like to sit on his flower. The flower has five petals and the stem has three leaves. On which flower should the ladybird sit?\n<image1>"
+    },
+    {
+        "prompt": "Theresa moves a pencil along the line. She starts at the arrow shown. In which order will she go past the shapes?\n<image1>"
+    },
+    {
+        "prompt": "There are more grey squares than white. How many more?\n<image1>"
+    },
+    {
+        "prompt": "A big square is made from 25 small squares put together. A few of the small squares have been lost. How many have been lost?\n<image1>"
+    },
+    {
+        "prompt": "The kangaroo is inside how many circles?\n<image1>"
+    },
+    {
+        "prompt": "When the ant <image1> walks from home <image2> along the arrows $\\rightarrow 3, \\uparrow 3, \\rightarrow 3, \\uparrow 1$, he gets to the ladybird <image3>.\nWhich animal does the ant <image1> get to when he walks from home <image2> along the following arrows: $\\rightarrow 2, \\downarrow 2, \\rightarrow 3, \\uparrow 3, \\rightarrow 2, \\uparrow 2$?\n<image6>\n<image7>"
+    },
+    {
+        "prompt": "Max has cut a rectangle into two pieces. One piece looks like:\n<image1>\nWhat does the other piece look like?\n<image2>"
+    },
+    {
+        "prompt": "Seven sticks lay on top of each other. Stick 2 lays right at the bottom. Stick 6 lays right on top. Which stick lays exactly in the middle?\n<image1>"
+    },
+    {
+        "prompt": "Each of the digits 2, 3, 4 and 5 will be placed in a square. Then there will be two numbers, which will be added together. What is the biggest number that they could make?\n<image1>"
+    },
+    {
+        "prompt": "Ingrid has 4 red, 3 blue, 2 green and 1 yellow cube. She uses them to build the following object:\n<image1>\nCubes with the same colour don't touch each other. Which colour is the cube with the question mark?"
+    },
+    {
+        "prompt": "How many triangles can you find in the picture?\n<image1>"
+    },
+    {
+        "prompt": "How many dots do all ladybirds have together?\n<image1>"
+    },
+    {
+        "prompt": "Florian has 10 equally long metal strips with equally many holes.\n<image1>\nHe bolts the metal strips together in pairs. Now he has five long strips (see the diagram).\n<image2>\nWhich of the long strips is the shortest?"
+    },
+    {
+        "prompt": "Which of the kangaroo cards shown below can be turned around so that it then looks the same as the card shown on the right?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "What do you see if you look at the tower, which is made up of two building blocks, exactly from above?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Every one of these six building blocks consists of 5 little cubes. The little cubes are either white or grey. Cubes of equal colour don't touch each other. How many little white cubes are there in total?\n<image1>"
+    },
+    {
+        "prompt": "Which piece is missing?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Which point in the labyrinth can we get to, starting at point $O$?\n<image1>"
+    },
+    {
+        "prompt": "Max has 10 dice. Which one of the following solids can he build with them?\n<image1>"
+    },
+    {
+        "prompt": "Gerda walks along the road and writes down the letters she can see on her right hand side. Which word is formed while Gerda walks from point 1 to point 2?\n<image1>"
+    },
+    {
+        "prompt": "<image1>\nIn the picture above five ladybirds can be seen. Each one is sitting on a certain flower. A ladybird is only allowed to sit on a flower if the following conditions are met:\n1) The difference between the number of points on each wing is equal to the number of leaves on the stem.\n2) The number of points on the wings of the ladybird is equal to the number of petals on the flower. Which of the following flowers is without a ladybird?\n<image2>"
+    },
+    {
+        "prompt": "<image1>\nIn the picture above we see a cube in two different positions.\nThe six sides of the cube look like this:\n<image2>\nWhich side is opposite to <image3>?\n<image4>"
+    },
+    {
+        "prompt": "Ellen wants to decorate the butterfly Which butterfly can she make?\n<image1>\nusing these 6 stickers\n<image2>\n<image3>"
+    },
+    {
+        "prompt": "Into how many pieces will the string be cut?\n<image1>"
+    },
+    {
+        "prompt": "How many blocks are missing in this igloo?\n<image1>"
+    },
+    {
+        "prompt": "This picture shows a bracelet with pearls.\n<image1>\nWhich of the bands below shows the same bracelet as above?\n<image2>"
+    },
+    {
+        "prompt": "Four of the numbers 1,3,4,5 and 7 are written into the boxes so that the calculation is correct.\nWhich number was not used?\n<image1>"
+    },
+    {
+        "prompt": "Jim and Ben are sitting in a ferris wheel (see picture on the right). The ferris wheel is turning. Now Ben is in the position where Jim was beforehand. Where is Jim now?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Alfred turns his building block 10 times. The first three times can be seen in the picture.\nWhat is the final position of the building block?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Each one of the four keys locks exactly one padlock. Every letter on a padlock stands for exactly one digit. Same letters mean same digits.\nWhich letters must be written on the fourth padlock?\n<image1>"
+    },
+    {
+        "prompt": "Peter has drawn this pattern:\n<image1>\nHe draws exactly the same pattern once more.\nWhich point is on his drawing?"
+    },
+    {
+        "prompt": "In order to get to his bone, the dog has to follow the black line. In total he turns 3-times to the right and 2-times to the left.\nWhich path does he take?\n<image1>"
+    },
+    {
+        "prompt": "Lisa needs exactly 3 pieces to complete her jigsaw.\nWhich of the 4 pieces is left over?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Charles cuts a rope into 3 equally long pieces. Then he makes one knot in one of the pieces, 2 in the next and in the third piece 3 knots. Then he lays the three pieces down in a random order. Which picture does he see?\n<image1>"
+    },
+    {
+        "prompt": "Which of the 5 pictures shows a part of this chain?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Jörg is sorting his socks. Two socks with the same number are one pair.\n<image1>\nHow many pairs can he find?"
+    },
+    {
+        "prompt": "Five equally big square pieces of card are placed on a table on top of each other. The picture on the side is created this way. The cards are collected up from top to bottom. In which order are they collected?\n<image1>"
+    },
+    {
+        "prompt": "The floor of a room is covered with equally big rectangular tiles (see picture). How long is the room? <image1>"
+    },
+    {
+        "prompt": "The picture shows a mouse and a piece of cheese. The mouse is only allowed to move to the neighbouring fields in the direction of the arrows. How many paths are there from the mouse to the cheese?\n<image1>"
+    },
+    {
+        "prompt": "Which of the figures can be cut into these 3 pieces?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "There are white, grey and black squares. Three children use these to make this pattern.\n<image1>\nFirst Anni replaces all black squares with white squares.\nThen Bob replaces all grey squares with black squares.\nFinally Chris replaces all white squares with grey squares.\nWhich picture have the three children now created?\n<image2>"
+    },
+    {
+        "prompt": "Julia has 5 pieces of plastic and has stacked these pieces on a table, as shown beside. What was the second piece she put on the table?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Marco's father took a picture of his son in front of the car shown beside. Which of the drawings below could represent this picture?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Maria made a block using white cubes and colored cubes in equal amounts. How many of the white cubes cannot be seen in the picture?\n<image1>"
+    },
+    {
+        "prompt": "Ana draws some shapes on a sheet. Her drawing has fewer squares than triangles. What could be her drawing?\n<image1>"
+    },
+    {
+        "prompt": "A village of 12 houses has four straight streets and four circular streets. The map shows 11 houses. In each straight street there are three houses and in each circular street there are also three houses. Where should the 12th house be placed on this map?\n<image1>"
+    },
+    {
+        "prompt": "Six figures were drawn, one on each side of a cube, as shown beside, in different positions. On the side that does not appear beside is this drawing:\n<image1>\nWhat is the figure on the face opposite to it?\n<image2>\n<image3>"
+    },
+    {
+        "prompt": "Two equal trains, each with 31 numbered wagons, travel in opposite directions. When the wagon number 7 of a train is side by side with the wagon number 12 of the other train, which wagon is side by side with the wagon number 11 ?\n<image1>"
+    },
+    {
+        "prompt": "Six different numbers, chosen from integers 1 to 9 , are written on the faces of a cube, one number per face. The sum of the numbers on each pair of opposite faces is always the same. Which of the following numbers could have been written on the opposite side with the number 8 ?\n<image1>"
+    },
+    {
+        "prompt": "In the figure, an arrow pointing from one person to another means that the first person is shorter than the second. For example, person $B$ is shorter than person $A$. Which person is the tallest?\n<image1>"
+    },
+    {
+        "prompt": "Maia the bee can only walk on colorful houses. How many ways can you color exactly three white houses with the same color so that Maia can walk from $A$ to $B$ ?\n<image1>"
+    },
+    {
+        "prompt": "The picture shows 2 mushrooms. What is the difference between their heights?\n<image1>"
+    },
+    {
+        "prompt": "Ella puts on this t-shirt and stands in front of a mirror. Which of these images does she see in the mirror?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "These children are standing in a line. Some are facing forwards and others are facing backwards. How many children are holding another child's hand with their right hand?\n<image1>"
+    },
+    {
+        "prompt": "In the Kangaroo constellation, all stars have a number greater than 3 and their sum is 20 . Which is the Kangaroo constellation?\n<image1>"
+    },
+    {
+        "prompt": "Edmund cut a ribbon as shown in the picture. How many pieces of the ribbon did he finish with?\n<image1>"
+    },
+    {
+        "prompt": "Which figure can be made from the 2 pieces shown on the right?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "The picture shows the five houses of five friends and their school. The school is the largest building in the picture. To go to school, Doris and Ali walk past Leo's house. Eva walks past Chole's house. Which is Eva's house?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Every time the witch has 3 apples she turns them in to 1 banana. Every time she has 3 bananas she turns them in to 1 apple. What will she finish with if she starts with 4 apples and 5 bananas?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "The numbers in the five circles around each house add up to 20 . Some numbers are missing.\n<image1>\nWhich number does the question mark stand for?"
+    },
+    {
+        "prompt": "The picture shows 5 cubes from the front. What do they look like from above?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Susi folds a piece of paper in the middle. She stamps 2 holes.\n<image1>\nWhat does the piece of paper look like when she unfolds it again?\n<image2>"
+    },
+    {
+        "prompt": "The two markers with a question mark have the same number.\n<image1>\nWhich number do you have to put instead of the question mark so that the calculation is correct?"
+    },
+    {
+        "prompt": "Each of the children Ali, Lea, Josef, Vittorio and Sophie get a birthday cake. The number on top of the cake shows how old the child is. Lea is two years older than Josef, but one year younger than Ali. Vittorio is the youngest. Which cake belongs to Sophie?\n<image1>"
+    },
+    {
+        "prompt": "According to the rule given in the left picture below, we construct a numerical triangle with an integer number greater than 1 in each cell. Which of the numbers given in the answers cannot appear in the shaded cell?\n<image1>"
+    },
+    {
+        "prompt": "We first draw an equilateral triangle, then draw the circumcircle of this triangle, then circumscribe a square to this circle. After drawing another circumcircle, we circumscribe a regular pentagon to this circle, and so on. We repeat this construction with new circles and new regular polygons (each with one side more than the preceding one) until we draw a 16 -sided regular polygon. How many disjoint regions are there inside the last polygon?\n<image1>"
+    },
+    {
+        "prompt": "In the picture $A B C D$ is a rectangle with $A B=16, B C=12$. Let $E$ be such a point that $A C \\perp C E, C E=15$. If $F$ is the point of intersection of segments $A E$ and $C D$, then the area of the triangle $A C F$ is equal to\n<image1>"
+    },
+    {
+        "prompt": "A circle $K$ is inscribed in a quarter circle with radius 6 as shown in the figure. What is the radius of circle $K$?\n<image1>"
+    },
+    {
+        "prompt": "The figure shows graphs of functions $f$ and $g$ defined on real numbers. Each graph consists of two perpendicular halflines. Which equality is satisfied for every real number $x$?\n<image1>"
+    },
+    {
+        "prompt": "How many triangles can be drawn with vertices in the 18 points shown in the figure?\n<image1>"
+    },
+    {
+        "prompt": "A $3 \\times 3 \\times 3$ cube weighs 810 grams. If we drill three holes through it as shown, each of which is a $1 \\times 1 \\times 3$ rectangular parallelepiped, the weight of the remaining solid is:\n<image1>"
+    },
+    {
+        "prompt": "We are given three semi-circles as shown. $A B E F$ is a rectangle and the radius of each of the semi-circles is $2 \\mathrm{~cm}$. $E$ and $F$ are the centers of the bottom semi-circles. The area of the shaded region (in $\\mathrm{cm}^{2}$) is:\n<image1>"
+    },
+    {
+        "prompt": "In the quadrilateral $A B C D$ the diagonal $B D$ is the bisector of $\\angle A B C$ and $A C=B C$. Given $\\angle B D C=80^{\\circ}$ and $\\angle A C B=20^{\\circ}, \\angle B A D$ is equal to:\n<image1>"
+    },
+    {
+        "prompt": "In the diagram, $A B$ has length $1 ; \\angle A B C=\\angle A C D=90^{\\circ}$; $\\angle C A B=\\angle D A C=\\theta$. What is the length of $A D$?\n<image1>"
+    },
+    {
+        "prompt": "The cells of a $4 \\times 4$ table are coloured black and white as shown in the left figure. One move allows us to exchange any two cells positioned in the same row or in the same column. What is the least number of moves necessary to obtain in the right figure?\n<image1>"
+    },
+    {
+        "prompt": "Points $M$ and $N$ are given on the sides $A B$ and $B C$ of a rectangle $A B C D$. Then the rectangle is divided into several parts as shown in the picture. The areas of 3 parts are also given in the picture. Find the area of the quadrilateral marked with \"?\".\n<image1>"
+    },
+    {
+        "prompt": "A die is in the position shown in the picture. It can be rolled along the path of 12 squares as shown. How many times must the die go around the path in order for it to return to its initial position with all faces in the initial positions?\n<image1>"
+    },
+    {
+        "prompt": "Two semicircles are drawn as shown in the figure. The chord $C D$, of length 4 , is parallel to the diameter $A B$ of the greater semicircle and touches the smaller semicircle. Then the area of the shaded region equals\n<image1>"
+    },
+    {
+        "prompt": "We see in the diagram at the right a piece of the graphic of the function\n$$\nf(x)=a x^{3}+b x^{2}+c x+d.\n$$\nWhat is the value of $b$?\n<image1>"
+    },
+    {
+        "prompt": "A river starts at point $A$. As it flows the river splits into two. The first branch takes $\\frac{2}{3}$ of the water and the second takes the rest. Later the first branch splits into three, one taking $\\frac{1}{8}$ of the branch's water, the second $\\frac{5}{8}$ and the third one the rest. Further down this last branch meets again a branch of the river. The map below shows the situation. What part of the original water flows at point $B$?\n<image1>"
+    },
+    {
+        "prompt": "We take three points from the grid so that they were collinear. How many possibilities do we have?\n<image1>"
+    },
+    {
+        "prompt": "In the figure each asterisk stands for one digit. The sum of the digits of the product is equal to\n<image1>"
+    },
+    {
+        "prompt": "The square $A B C D$ has a side of length 1 and $M$ is the midpoint of $A B$. The area of the shaded region is\n<image1>"
+    },
+    {
+        "prompt": "We used metal rods to build this nice ensemble. We know there are 61 octagons. How many rods are there?\n<image1>"
+    },
+    {
+        "prompt": "The suare in the diagram has side length 1. The radius of the small circle would\nthen be of the length\n<image1>"
+    },
+    {
+        "prompt": "Each side of a triangle $A B C$ is being extended to the points $\\mathrm{P}, \\mathrm{Q}, \\mathrm{R}, \\mathrm{S}, \\mathrm{T}$ and $\\mathrm{U}$, so that $\\mathrm{PA}=\\mathrm{AB}=\\mathrm{BS}, \\mathrm{TC}=\\mathrm{CA}$ $=\\mathrm{AQ}$ and $\\mathrm{UC}=\\mathrm{CB}=\\mathrm{BR}$. The area of $\\mathrm{ABC}$ is 1. How big is the area of the hexagon PQRSTU?\n<image1>"
+    },
+    {
+        "prompt": "In the diagram on the right we want to colour the fields with the colours A, B, C and D so that adjacent fields are always in different colours. (Even fields that share only one corner, count as adjacent.) Some fields have already been coloured in. In which colour can the grey field be coloured in?\n<image1>"
+    },
+    {
+        "prompt": "A (very small) ball is kicked off from point A on a square billiard table with side length $2 \\mathrm{~m}$. After moving along the shown path and touching the sides three times as indicated, the path ends in point $B$. How long is the path that the bal travels from A to B? (As indicated on the right: incident angle = emergent angle.)\n<image1>"
+    },
+    {
+        "prompt": "In the diagram to the right a $2 \\times 2 \\times 2$ cube is made up of four transparent $1 \\times 1 \\times 1$ cubes and four non-transparent black $1 \\times 1 \\times 1$ cubes. They are placed in a way so that the entire big cube is nontransparent; i.e. looking at it from the front to the back, the right to the left, the top to the bottom, at no point you can look through the cube. What is the minimum number of black $1 \\times 1 \\times 1$ cubes needed to make a $3 \\times 3 \\times 3$ cube non-transparent in the same way?\n<image1>"
+    },
+    {
+        "prompt": "In the diagram on the right we see the birdô-eye view and front elevation of a solid that is defined by flat surfaces (i.e. view from obove and the front respectively). Bird' s-Eye View (view from above): <image1>. Front Elevation (view from the front): <image2>.\nWhich of the outlines I to IV can be the side elevation (i.e. view from the left) of the same object?\n<image3>"
+    },
+    {
+        "prompt": "The sum of the number in each line, column and diagonal in the Ămagic squareñon the right is always constant. Only two numbers are visible. Which number is missing in field $a$?\n<image1>"
+    },
+    {
+        "prompt": "In a rectangle JKLM the angle bisector in $\\mathrm{J}$ intersects the diagonal KM in $\\mathrm{N}$. The distance of $\\mathrm{N}$ to $\\mathrm{LM}$ is 1 and the distance of $\\mathrm{N}$ to $\\mathrm{KL}$ is 8. How long is LM?\n<image1>"
+    },
+    {
+        "prompt": "Which of the following graphs represents the solution set of $(x-|x|)^{2}+(y-|y|)^{2}=4$?\n<image1>"
+    },
+    {
+        "prompt": "A strip of paper is folded three times as shown. Determine $\\beta$ if $\\alpha=70^{\\circ}$.\n<image1>"
+    },
+    {
+        "prompt": "The picture on the right shows a tile pattern. The side length of the bigger tiles is a and of the smaller ones b. The dotted lines (horizontal and tilted) include an angle of $30^{\\circ}$. How big is the ratio a:b?\n<image1>"
+    },
+    {
+        "prompt": "In the picture on the right a number should be written next to each point. The sum of the numbers on the corners of each side of the hexagon should be equal. Two numbers have already been inserted. Which number should be in the place marked '$x$'?\n<image1>"
+    },
+    {
+        "prompt": "In the (x,y)-plane the co-ordinate axes are positioned as usual. Point $A(1,-10)$ which is on the parabola $y=a x^{2}+b x+c$ was marked. Afterwards the co-ordinate axis and the majority of the parabola were deleted. Which of the following statements could be false?\n<image1>"
+    },
+    {
+        "prompt": "In a list of five numbers the first number is 2 and the last one is 12. The product of the first three numbers is 30 , of the middle three 90 and of the last three 360. What is the middle number in that list?\n<image1>"
+    },
+    {
+        "prompt": "A right-angled triangle with side lengths $a=8, b=15$ and $c=17$ is given. How big is the radius $r$ of the inscribed semicircle shown?\n<image1>"
+    },
+    {
+        "prompt": "Let $a>b$. If the ellipse shown rotates about the $x$-axis an ellipsoid $E_{x}$ with volume $\\operatorname{Vol}\\left(E_{x}\\right)$ is obtained. If it rotates about the $y$-axis an ellipsoid $E_{y}$ with volume $\\operatorname{Vol}\\left(E_{y}\\right)$ is obtained. Which of the following statements is true?\n<image1>"
+    },
+    {
+        "prompt": "An equilateral triangle is being rolled around a unit square as shown. How long is the path that the point shown covers, if the point and the triangle are both back at the start for the first time?\n<image1>"
+    },
+    {
+        "prompt": "The regular eight-sided shape on the right has sides of length 10. A circle touches all inscribed diagonals of this eight-sided shape. What is the radius of this circle?\n<image1>"
+    },
+    {
+        "prompt": "Amongst the graphs shown below there is the graph of the function $f(x)=(a-x)(b-x)^{2}$ with $a<b$. Which is it?\n<image1>"
+    },
+    {
+        "prompt": "In a triangle $A B C$ the points $M$ and $N$ are placed on side $A B$ so that $A N=A C$ and $B M=$ $B C$. Determine $\\angle A C B$ if $\\angle M C N=43^{\\circ}$\n<image1>"
+    },
+    {
+        "prompt": "If one removes some $1 \\times 1 \\times 1$ cubes from a $5 \\times 5 \\times 5$ cube, you obtain the solid shown. It consists of several equally high pillars that are built upon a common base. How many little cubes have been removed?\n<image1>"
+    },
+    {
+        "prompt": "In the diagram on the right the following can be seen: a straight line, which is the common tangent of two touching circles with radius 1, and a square with one edge on the straight line and the other vertices one on each of the two circles. How big is the side length of the square?\n<image1>"
+    },
+    {
+        "prompt": "In the diagram a closed polygon can be seen whose vertices are the midpoints of the edges of the die. The interior angles are as usual defined as the angle that two sides of the polygon describe in a common vertex. How big is the sum of all interior angles of the polygon?\n<image1>"
+    },
+    {
+        "prompt": "How many of the following shapes can be drawn using one continuous line (i.e. without lifting the pencil) and without going over a line twice?\n<image1>"
+    },
+    {
+        "prompt": "A drinking glass is made in the shape of a truncated cone. The outside of the glass (without the upper or lower circle) should be covered with coloured paper. How do you need to cut the paper to completely cover the glass without an overlap?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "The diagram shows three concentric circles and two perpendicular, common diameters of the three circles. The three grey sections are of equal area, the small circle has radius 1. What is the product of the radii of the three circles?\n<image1>"
+    },
+    {
+        "prompt": "The curve in the diagram is defined by the equation\n$$\n\\left(x^{2}+y^{2}-2 x\\right)^{2}=2\\left(x^{2}+y^{2}\\right)\n$$\nWhich of the lines $a, b, c, d$ is the $y$-axis?\n<image1>"
+    },
+    {
+        "prompt": "Diana wants to write whole numbers into each circle in the diagram, so that for all eight small triangles the sum of the three numbers in the corners is always the same. What is the maximum amount of different numbers she can use?\n<image1>"
+    },
+    {
+        "prompt": "The rectangles $S_{1}$ and $S_{2}$ shown in the picture have the same area. Determine the ratio $x: y$.\n<image1>"
+    },
+    {
+        "prompt": "The diagram shows a circle with centre $O$ as well as a tangent that touches the circle in point $P$. The arc $A P$ has length 20, the arc $B P$ has length 16. What is the size of the angle $\\angle A X P$?\n<image1>"
+    },
+    {
+        "prompt": "Bettina chooses five points $A, B, C, D$ and $E$ on a circle and draws the tangent to the circle at point $A$. She realizes that the five angles marked $x$ are all equally big. (Note that the diagram is not drawn to scale!) How big is the angle $\\angle A B D$?\n<image1>"
+    },
+    {
+        "prompt": "How many quadratic functions $y=a x^{2}+b x+c$ (with $a \\neq 0$ ) have graphs that go through at least 3 of the marked points?\n<image1>"
+    },
+    {
+        "prompt": "A rectangular piece of paper $A B C D$ is $5 \\mathrm{~cm}$ wide and $50 \\mathrm{~cm}$ long. The paper is white on one side and grey on the other. Christina folds the strip as shown so that the vertex $B$ coincides with $M$ the midpoint of the edge $C D$. Then she folds it so that the vertex $D$ coincides with $N$ the midpoint of the edge $A B$. How big is the area of the visible white part in the diagram?\n<image1>\n<image2>\n<image3>"
+    },
+    {
+        "prompt": "We consider a $5 \\times 5$ square that is split up into 25 fields. Initially all fields are white. In each move it is allowed to change the colour of three fields that are adjacent in a horizontal or vertical line (i.e. white fields turn black and black ones turn white). What is the smallest number of moves needed to obtain the chessboard colouring shown in the diagram?\n<image1>"
+    },
+    {
+        "prompt": "In the diagram we see 10 islands that are connected by 15 bridges. What is the minimum number of bridges that need to be closed off so that there is no connection from $A$ to $B$ anymore?\n<image1>"
+    },
+    {
+        "prompt": "Four of the following five pictures show pieces of the graph of the same quadratic function. Which piece does not belong?\n<image1>"
+    },
+    {
+        "prompt": "The diagram shows a circle with centre $O$ and the diameters $A B$ and $C X$. Let $O B=$ $B C$. Which fraction of the circle area is shaded?\n<image1>"
+    },
+    {
+        "prompt": "Three circles with centres $A, B, C$ touch each other in pairs from the outside (see diagram). Their radii are 3,2 and 1. How big is the area of the triangle $A B C$?\n<image1>"
+    },
+    {
+        "prompt": "The diagram shows the floor plan of Renate's house. Renate enters her house from the terrace (Terrasse) and walks through every door of the house exactly once. Which room does she end up in?\n<image1>"
+    },
+    {
+        "prompt": "The faces of the prism shown, are made up of two triangles and three squares. The six vertices are labelled using the numbers 1 to 6. The sum of the four numbers around each square is always the same. The numbers 1 and 5 are given in the diagram. Which number is written at vertex $X$?\n<image1>"
+    },
+    {
+        "prompt": "On an idealised rectangular billiard table with side lengths $3 \\mathrm{~m}$ and $2 \\mathrm{m}$ a ball (point-shaped) is pushed away from point $M$ on the long side $A B$. It is reflected exactly once on each of the other sides as shown. at which distance from the vertex $A$ will the ball hit this side again if $B M=1.2 \\mathrm{~m}$ and $B N=$ $0.8 m$?\n<image1>"
+    },
+    {
+        "prompt": "Three triangles are connected to each other as shown. In which of the following pictures are the three triangles connected in the same way?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "The diagram shows two adjoining squares with side lengths $a$ and $b$ (with $a<b$). How big is the area of the grey triangle?\n<image1>"
+    },
+    {
+        "prompt": "Three circles with radius 2 are drawn in such a way that each time one of the points of intersection of two circles is identical with the centre of the third circle. How big is the area of the grey zone?\n<image1>"
+    },
+    {
+        "prompt": "The pie chart beside refers to the number of inhabitants of the five zones of a city. The central zone has the same population as the north, west and east zones together and the south zone has half of the inhabitants of the west zone. What is the percentage difference between the inhabitants of the north and east zones?\n<image1>"
+    },
+    {
+        "prompt": "Paula's weather app shows a diagram of the predicted weather and maximum temperatures for the next seven days, as shown. Which of the following represents the corresponding graph of maximum temperatures?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "The parabola in the figure has an equation of the form $y=a x^{2}+b x+c$ for some distinct real numbers $a, b$ and $c$. Which of the following equations could be an equation of the line in the figure?\n<image1>"
+    },
+    {
+        "prompt": "A piece of string is lying on the table. It is partially covered by three coins as seen in the figure. Under each coin the string is equally likely to pass over itself like this: <image1>\nor like this: <image2>. What is the probability that the string is knotted after its ends are pulled?\n<image3>"
+    },
+    {
+        "prompt": "A triangle $A B C$ is divided into four parts by two straight lines, as shown. The areas of the smaller triangles are 1,3 and 3. What is the area of the original triangle?\n<image1>"
+    },
+    {
+        "prompt": "Martin's smartphone displays the diagram on the right. It shows how long he has worked with four different apps in the previous week. The apps are sorted from top to bottom according to the amount of time they have been used. This week he has spent only half the amount of time using two of the apps and the same amount of time as last week using the other two apps. Which of the following pictures cannot be the diagram for the current week?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "A cuboid with surface area $X$ is cut up along six planes parallel to the sides (see diagram). What is the total surface area of all 27 thus created solids?\n<image1>"
+    },
+    {
+        "prompt": "Two equilateral triangles of different sizes are placed on top of each other so that a hexagon is formed on the inside whose opposite sides are parallel. Four of the side lengths of the hexagon are stated in the diagram. How big is the perimeter of the hexagon? <image1>"
+    },
+    {
+        "prompt": "The diagram shows a spiral of consecutive numbers starting with 1. In which order will the numbers 625, 626 and 627 appear in the spiral? <image1>"
+    },
+    {
+        "prompt": "The picture on the right has been drawn on paper and cut out to make a house. Which of the houses does it make?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "This is a multiplication table. Which two letters represent the same number?\n<image1>"
+    },
+    {
+        "prompt": "A butterfly sat down on a correctly solved exercise. What number is the butterfly covering?\n<image1>"
+    },
+    {
+        "prompt": "At noon the minute hand of a clock is in the position shown on the left and after the quarter of an hour -- in the position shown on the right. Which position the minute hand will take after seventeen quarters from the noon?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "In the diagram every of the eight kangaroos can jump to any empty square. What is the least number of kangaroos that must jump so that each row and each column have exactly two kangaroos?\n<image1>"
+    },
+    {
+        "prompt": "John has a chocolate tablet consisting of square pieces of $1 \\mathrm{~cm} \\times 1 \\mathrm{~cm}$. He has eaten already some pieces in a corner (see the picture). How many pieces John still have?\n<image1>"
+    },
+    {
+        "prompt": "The figure shows a rectangular garden with dimensions $16 \\mathrm{~m}$ and $20 \\mathrm{~m}$. The gardener has planted six identical flowerbeds (they are gray in the diagram). What is the perimeter (in metres) of each of the flowerbeds?\n<image1>"
+    },
+    {
+        "prompt": "How many cubes have been taken from the block?\n<image1>"
+    },
+    {
+        "prompt": "In each of the nine cells of the square we will write down one of the digits 1 , 2 or 3. We will do this in such a way that in each horizontal row and vertical column each of the digits 1, 2 and 3 will be written. In the upper left cell we will start with 1. How many different squares can we then make?\n<image1>"
+    },
+    {
+        "prompt": "Zita walks from left to right and puts the numbers into her basket. Which of the following numbers can be in her basket?\n<image1>"
+    },
+    {
+        "prompt": "What is the piece that fits completely to the given one to form a rectangle?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Which number has to be put into the dark cloud to have all the given calculations right?\n<image1>"
+    },
+    {
+        "prompt": "Jane shoots two arrows at the target. In the drawing we see that her score is 5. If both arrows hit the target, how many different scores can she obtain?\n<image1>"
+    },
+    {
+        "prompt": "Thomas has made a table out of small cubes. How many small cubes did he use?\n<image1>"
+    },
+    {
+        "prompt": "In the picture on the right you see a map. In the middle a piece is missing. The cat should be able to reach the milk, and the mouse the cheese, but the cat and the mouse must not meet each other. What should the piece in the middle look like?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "A large cube is made from 64 small cubes. The 5 visible faces of the large cube are green, the bottom face is red. How many of the small cubes have 3 green faces?\n<image1>"
+    },
+    {
+        "prompt": "Kamilla wrote down all of the numbers from 1-100 one after the other in a table with 5 columns. A part of the table is shown. Her brother cut out a piece of the table and erased some of the numbers. Which of the following could this piece have been?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "lines are drawn on a piece of paper and some of the lines are given numbers. The paper is cut along some of these lines and then folded as shown in the picture. What is the total of the numbers on the lines that were cut?\n<image1>"
+    },
+    {
+        "prompt": "With which square do you have to swap the question mark, so that the white area and the black area are the same size?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Seven children stand in a circle. Nowhere are two boys found standing next to each other. Nowhere are three girls found standing next to each other. What is possible for the number of girls? The number of girls can...\n<image1>"
+    },
+    {
+        "prompt": "Elisabeth sorts the following cards:\n<image1>\nWith each move she is allowed to swap any two cards with each other. What is the smallest number of moves she needs in order to get the word KANGAROO."
+    },
+    {
+        "prompt": "Heinzi the kangaroo has bought some toys. For this he gave 150 Kangoo-coins (KC) and received 20 kangoo-coins back. Just before leaving the shop he changed his mind, and exchanged one of the toys he had bought with another one. Therefore he received a further 5 kangoo-coins back from the shopkeeper. Which of the toys in the picture has Heinzi taken home with him?\n<image1>"
+    },
+    {
+        "prompt": "In each box exactly one of the digits $0,1,2,3,4,5$ and 6 is to be written. Each digit will only be used once. Which digit has to be written in the grey box so that the sum is correct?\n<image1>"
+    },
+    {
+        "prompt": "In the figure on the right a few of the small squares will be painted grey. In so doing no square <image1> that is made from four small grey squares must appear. At most how many of the squares in the figure can be painted grey?\n<image2>"
+    },
+    {
+        "prompt": "In the diagram you can see a very ragged island. Some of the frogs are sitting in the water. How many are sitting on the island?\n<image1>"
+    },
+    {
+        "prompt": "Peter rides his bike along a cycle path in a park. He starts at point $S$ and rides in the direction of the arrow. At the first crossing he turns right, then at the next left, and then again to the right and then again to left. Which crossing does he not reach?\n<image1>"
+    },
+    {
+        "prompt": "Which picture shows a single large loop?\n<image1>"
+    },
+    {
+        "prompt": "In this square there are 9 dots. The distance between the points is always the same. You can draw a square by joining 4 points. How many different sizes can such squares have?\n<image1>"
+    },
+    {
+        "prompt": "Clown Pipo looks like this:\n<image1>\nHe looks at himself in the mirror. Which picture does he see?\n<image2>"
+    },
+    {
+        "prompt": "Georg goes to the circus with his father. They have the seat numbers 71 and 72 . Which arrow do they have to follow to get to their seats?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Chantal has placed numbers in two of the nine cells (see diagram). She wants to place the numbers 1, 2, 3 in every row and every column exactly once. How big is the sum of the two numbers in the grey cells?\n<image1>"
+    },
+    {
+        "prompt": "Karin wants to place five bowls on a table so that they are ordered according to their weight. She has already placed the bowls $Q, R, S$ and $T$ in order, where $Q$ is lightest and $T$ is heaviest. Where does she have to place bowl Z?\n<image1>"
+    },
+    {
+        "prompt": "The following picture shows a necklace with six pearls:\n<image1>\nWhich of the following diagrams shows the same necklace?\n<image2>"
+    },
+    {
+        "prompt": "The two colours of this picture are swapped. Then the picture is turned. Which of the pictures below is obtained?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Linda fixes 3 photos on a pin board next to each other. She uses 8 pins to do so. Peter wants to fix 7 photos in the same way. How many pins does he need for that?\n<image1>"
+    },
+    {
+        "prompt": "John paints the squares of the board next to it if the result of the calculation inside them is 24. How did the painting of the board look?\n\\begin{tabular}{|l|l|l|}\n\\hline $28-4$ & $4 \\times 6$ & $18+6$ \\\\\n\\hline $19+6$ & $8 \\times 3$ & $29-6$ \\\\\n\\hline\n\\end{tabular}\n<image1>"
+    },
+    {
+        "prompt": "Cynthia paints each region of the figure in a single color: red, blue or yellow. She paints with different colors the regions that touch each other. In how many different ways can Cyntia paint the figure?\n<image1>"
+    },
+    {
+        "prompt": "How many fish will have their heads pointing towards the ring when we straighten the line?\n<image1>"
+    },
+    {
+        "prompt": "Sofie wants to pick 5 different shapes from the boxes. She can only pick 1 shape from each box. Which shape must she pick from box 4?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "7 cards are arranged as shown. Each card has 2 numbers on with 1 of them written upside down. The teacher wants to rearrange the cards so that the sum of the numbers in the top row is the same as the sum of the numbers in the bottom row. She can do this by turning one of the cards upside down. Which card must she turn?\n<image1>"
+    },
+    {
+        "prompt": "If a laser beam hits a mirror it changes its direction (see left diagram). Each mirror has mirrored sides on both sides. At which letter does the laser beam end?\n<image1>"
+    },
+    {
+        "prompt": "A road leads away from each of the six houses (see diagram). A hexagon showing the roads in the middle is however, missing. Which hexagons fit in the middle so\n<image1>that one can travel from $A$ to $B$ and to $E$, but not to $D$?"
+    },
+    {
+        "prompt": "The sum of the numbers in each of the rings should be 55. Which number is $X$?\n<image1>"
+    },
+    {
+        "prompt": "The composite board shown in the picture consists of 20 fields $1 \\times 1$. How many possibilities are there exist to cover all 18 white fields with 9 rectangular stones $1 \\times 2$ ? (The board cannot be turned. Two possibilities are called different if at least one stone lies in another way.)\n<image1>"
+    },
+    {
+        "prompt": "Choose the picture where the angle between the hands of a watch is $150^{\\circ}$.\n<image1>"
+    },
+    {
+        "prompt": "Six cars are parked on a parking. Someone wants to move from $S$ to $F$. His route must be as short as possible. Which of the following routes is the shortest?\n<image1>"
+    },
+    {
+        "prompt": "On the faces of a cube are written letters. First figure represents one possibility of its net. What letter should be written instead of the question mark in the other version of its net?\n<image1>"
+    },
+    {
+        "prompt": "Two squares $9 \\mathrm{~cm} \\times 9 \\mathrm{~cm}$ overlap so as to form a rectangle $9 \\mathrm{~cm} \\times 13 \\mathrm{~cm}$ as shown. Find the area of the region in which the two squares overlap.\n<image1>"
+    },
+    {
+        "prompt": "There are 5 boxes and each box contains some cards labeled K, M, H, P, T, as shown below. Peter wants to remove cards out of each box so that at the end each box contained only one card, and different boxes contained cards with different letters. Which card remains in the first box?\n<image1>"
+    },
+    {
+        "prompt": "By shooting two arrows at the shown target on the wall, how many different scores can we obtain?\n<image1>"
+    },
+    {
+        "prompt": "Suppose you make a trip over the squared board shown, and you visit every square exactly once. Where must you start, if you can move only horizontally or vertically, but not diagonally?\n<image1>"
+    },
+    {
+        "prompt": "The picture shows the plan of a town. There are four circular bus routes in the town. Bus 1 follows the route $C D E F G H C$, which is $17 \\mathrm{~km}$ long. Bus 2 goes $A B C F G H A$, and covers $12 \\mathrm{~km}$. The route of bus 3 is $A B C D E F G H A$, and is equal to $20 \\mathrm{~km}$. Bus 4 follows the route $C F G H C$. How long is this route?\n<image1>"
+    },
+    {
+        "prompt": "The diagram shows squares of different sizes. The side length of the smallest square is $20 \\mathrm{~cm}$. How long is the black line?\n<image1>"
+    },
+    {
+        "prompt": "Which of the following is made using more than one piece of string?\n<image1>"
+    },
+    {
+        "prompt": "In the following figures you see five elastic bands, only one of which is tied in a knot. Which one?\n<image1>"
+    },
+    {
+        "prompt": "The numbers 1 to 7 should be written in the small circles so that the sum of the numbers along each line is the same. Which number should be written in the uppermost circle on the triangle?\n<image1>"
+    },
+    {
+        "prompt": "Four cogs are connected to each other as shown in the picture. The first has 30 teeth, the second 15, the third 60 and the fourth 10 . How many turns will the last cog make for each full turn of the first cog?\n<image1>"
+    },
+    {
+        "prompt": "A regular octagon is folded three times down the middle as shown, until a triangle is formed. Then the rightmost corner is cut away. Which of the following shapes is formed when the paper is unfolded?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Nick can turn right but not left on his bicycle. What is the least number of right turns he must make in order to get from $A$ to $B$?\n<image1>"
+    },
+    {
+        "prompt": "Johann stacks $1 \\times 1$ cubes on the squares of a $4 \\times 4$ grid. The diagram on the right shows how many cubes were piled on top of each other on each square of the grid. What will Johann see if he looks from behind (hinten) at the tower?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "For the game of Chess a new piece, the Kangaroo, has been invented. With each jump the kangaroo jumps either 3 squares vertically and 1 Horizontally, or 3 horizontally and 1 vertically, as pictured. What is the smallest number of jumps the kangaroo must make to move from its current position to position $\\mathrm{A}$ ?\n<image1>"
+    },
+    {
+        "prompt": "$A 10 \\mathrm{~cm}$ long piece if wire is folded so that every part is equally long (see diagram). The wire is then cut through in the two positions marked. How long are the three pieces created in this way?\n<image1>"
+    },
+    {
+        "prompt": "Robert has two equally big squares made of paper. He glues them together. Which of the following shapes can he not make?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Jane, Kate and Lynn go for a walk. Jane walks at the very front, Kate in the middle and Lynn at the very back. Jane weighs $500 \\mathrm{~kg}$ more than Kate and Kate weighs $1000 \\mathrm{~kg}$ less than Lynn. Which of the following pictures shows Jane, Kate and Lynn in the right order?\n<image1>"
+    },
+    {
+        "prompt": "A furniture shop sells 3-seater, 2-seater and 1-seater sofas that each have an equally wide armrest on the left and the right hand side. Each seat is equally wide (see picture). Together with the armrests the 3-seater sofa is $220 \\mathrm{~cm}$ and the 2-seater sofa $160 \\mathrm{~cm}$ wide. How wide is the 1-seater sofa?\n<image1>"
+    },
+    {
+        "prompt": "The faces of a die are either white, grey or black. Opposite faces are always a different colour. Which of the following nets does not belong to such a die?\n<image1>"
+    },
+    {
+        "prompt": "Benjamin writes a number into the first circle. He then carries out the calculations as instructed and each time writes down the results in the respective circles. How many of the six numbers are divisible by 3?\n<image1>"
+    },
+    {
+        "prompt": "When the bat Elisa left its cave at night, the digital clock showed <image1>. When she came back in the morning and hung herself upside down, she looked at her watch and saw <image1>. How long did she stay out of the cave?"
+    },
+    {
+        "prompt": "Ten people order an ice cream for each one. They ask for four vanilla ice creams, three chocolate ice creams, two lemon ice creams and one mango ice cream. As a topping, they ask for four umbrellas, three cherries, two wafers and a chocolate gum, one topping for each ice cream. Since they don't want two ice creams the same, which of the following combinations is possible?\n<image1>"
+    },
+    {
+        "prompt": "There is a square with line segments drawn inside it. The line segments are drawn either from the vertices or the midpoints of other line segments. We coloured $\\frac{1}{8}$ of the large square. Which one is our coloring?\n<image1>"
+    },
+    {
+        "prompt": "A triangular pyramid is built with 10 identical balls, like this <image1>. Each ball has one of the letters A, $B, C, D$ and $E$ on it. There are 2 balls marked with each letter. The picture shows 3 side views of the pyramid. What is the letter on the ball with the question mark?\n<image2>"
+    },
+    {
+        "prompt": "Eva paddles around five buoys with her boat (see diagram). Which of the buoys does she paddle around in an anti-clockwise direction?\n<image1>"
+    },
+    {
+        "prompt": "How much does this Ferris wheel need to turn so that a white gondola is on top for\nthe first time?\n<image1>"
+    },
+    {
+        "prompt": "In triangle $A B C$ (see picture) $A B=A C, A E=A D$, and $\\angle B A D=30^{\\circ}$. What is the measure of angle $C D E$?\n<image1>"
+    },
+    {
+        "prompt": "The section of a cube by a plane generates a plane figure. I have plotted this section in the development of the cube (see the picture). Can you find out what figure it is?\n<image1>"
+    },
+    {
+        "prompt": "How many pieces of string are there in the picture?\n<image1>"
+    },
+    {
+        "prompt": "Which of the following is made using more than one piece of string?\n<image1>"
+    },
+    {
+        "prompt": "How many lines of symmetry does this figure have?\n<image1>"
+    },
+    {
+        "prompt": "In the quadrilateral $\\mathrm{ABCD}, \\mathrm{AD}=\\mathrm{BC}, \\angle \\mathrm{DAC}=50^{\\circ}$, $\\angle \\mathrm{DCA}=65^{\\circ}$ and $\\angle \\mathrm{ACB}=70^{\\circ}$. How big is $\\angle \\mathrm{ABC}$?\n<image1>"
+    },
+    {
+        "prompt": "The sides of the rectangle $A B C D$ are parallel to the co-ordinate axes. The rectangle is positioned below the $x$-axis and to the right of the $y$-axis, as shown in the picture. The co-ordinates of the points $A, B, C, D$ are whole numbers. For each of the points we calculate the value of ( $y$ co-ordinate) $\\div$(x co-ordinate). Which of the points will give the smallest value?\n<image1>"
+    },
+    {
+        "prompt": "In triangle $A B C$ (see sketch) $A D$ is the angle bisector of the angle at $A$ and $B H$ is the height from side $A C$. The obtuse angle between $B H$ and $A D$ is four times the size of angle $\\angle D A B$. How big is the angle $\\angle C A B$?\n<image1>"
+    },
+    {
+        "prompt": "Anne has glued together some cubes and has obtained the solid shown on the right. She turns it around to check it out from different sides. Which view can she not obtain?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Valentin draws a zig-zag line inside a rectangle as shown in the diagram. For that he uses the angles $10^{\\circ}, 14^{\\circ}, 33^{\\circ}$ and $26^{\\circ}$. How big is angle $\\varphi$?\n<image1>"
+    },
+    {
+        "prompt": "The diagram shows a rectangle and a straight line $x$, which is parallel to one of the sides of the rectangle. There are two points $A$ and $B$ on $x$ inside the rectangle. The sum of the areas of the two triangles shaded in grey is $10 \\mathrm{~cm}^{2}$. How big is the area of the rectangle?\n<image1>"
+    },
+    {
+        "prompt": "The points $N, M$ and $L$ lie on the sides of an equilateral triangle $A B C$ so that $\\mathrm{NM} \\perp \\mathrm{BC}, \\mathrm{ML} \\perp \\mathrm{AB}$ and $\\mathrm{LN} \\perp \\mathrm{AC}$ holds true. The area of the triangle $\\mathrm{ABC}$ is $36 \\mathrm{~cm}^{2}$. What is the area of the triangle LMN?\n<image1>"
+    },
+    {
+        "prompt": "Amelia has a paper strip with five equal cells containing different drawings, according to the figure. She folds the strip in such a way that the cells overlap in five layers. Which of the sequences of layers, from top to bottom, is not possible to obtain?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "A bike lock has four wheels numbered with the digits 0 to 9 in order. Each of the four wheels is rotated by $180^{\\circ}$ from the code shown in the first diagram to get the correct code. What is the correct code for the bike lock?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Five squares are positioned as shown. The small square indicated has area 1. What is the value of $h$?\n<image1>"
+    },
+    {
+        "prompt": "Meike paddles around five buoys with her boat (see diagram). Which of the buoys does she paddle around in a clockwise direction?\n<image1>"
+    },
+    {
+        "prompt": "The black-white caterpillar shown, rolls up to go to sleep. Which diagram could show the rolled-up caterpillar?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "Anna has five circular discs that are all of different sizes. She wants to build a tower using three discs where a smaller disc always has to lie on top of a bigger disc. How many ways are there for Anna to build the tower? <image1>"
+    },
+    {
+        "prompt": "The digits 0 to 9 can be formed using matchsticks (see diagram). How many different positive whole numbers can be formed this way with exactly 6 matchsticks? <image1>"
+    },
+    {
+        "prompt": "An ant walks along the sides of an equilateral triangle (see diagram). Its velocity is $5 \\mathrm{~cm} / \\mathrm{min}$ along the first side, $15 \\mathrm{~cm} / \\mathrm{min}$ along the second and $20 \\mathrm{~cm} / \\mathrm{min}$ along the third. With which average velocity in $\\mathrm{cm} / \\mathrm{min}$ does the ant walk once around the entire triangle? <image1>"
+    },
+    {
+        "prompt": "What is the sum of the 10 angles marked in the picture?\n<image1>"
+    },
+    {
+        "prompt": "How many routes are possible for the king to travel from the top left square to the bottom right square of the grid with the minimum number of moves. (The king can move to any adjacent square, including that adjacent diagonally.)\n<image1>"
+    },
+    {
+        "prompt": "In the diagram one should go from A to B along the arrows. Along the way calculate the sum of the numbers that are stepped on. How many different results can be obtained?\n<image1>"
+    },
+    {
+        "prompt": "A circle of radius $4 \\mathrm{~cm}$ is divided, as shown, by four semicircles with radius $2 \\mathrm{~cm}$ into four congruent parts. What is the perimeter of one of these parts?\n<image1>"
+    },
+    {
+        "prompt": "The area of the grey rectangle shown on the right is $13 \\mathrm{~cm}^{2}. X$ and $Y$ are the midpoints of the sides of the trapezium. How big is the area of the trapezium?\n<image1>"
+    },
+    {
+        "prompt": "Which of the shapes to the right has the largest area?\n<image1>"
+    },
+    {
+        "prompt": "Mr. Hide wants to find a treasure that he buried years before. He can only remember that he buried the treasure at least $5 \\mathrm{~m}$ away from the hedge and no more than $5 \\mathrm{~m}$ away from the old pear tree. Which picture shows best the area where Mr. Hide has to look for the treasure?\n<image1>"
+    },
+    {
+        "prompt": "In the diagram one can see my decision-die in three different positions. What is the probability I get a \"YES\", when rolling this die once.\n<image1>"
+    },
+    {
+        "prompt": "Lines parallel to the base $A C$ of triangle $A B C$ are drawn through $X$ and $Y$. In each case, the areas of the grey parts are equal in siz. The ratio $B X: X A=4: 1$ is known. What is the ratio $B Y: Y A$?\n<image1>"
+    },
+    {
+        "prompt": "Peter wants to colour in the cells of a $3 \\times 3$ square so that every row, every column and both diagonals each have three cells with three different colours. What is the smallest number of colours with which Peter can achieve this?\n<image1>"
+    },
+    {
+        "prompt": "The rings shown are partially interlinked. How long is the longest chain built this way which also contains the thick light ring?\n<image1>"
+    },
+    {
+        "prompt": "Five identical measuring jugs are filled with water. Four of them contain exactly the same amount of water. Which measuring jug contains a different amount?\n<image1>"
+    },
+    {
+        "prompt": "Jenny looks at her weather app that shows the predicted weather and maximum temperatures for the next five days. Which of the following represents the corresponding graph of maximum temperatures?\n<image1>\n<image2>"
+    },
+    {
+        "prompt": "In triangle $ABC, AB=AC, AE=AD$ and angle $BAD=30^{\\circ}$. What is the size of angle $CDE$ ? <image1>"
+    },
+    {
+        "prompt": "In the diagram, $V W X$ and $X Y Z$ are congruent equilateral triangles and angle $V X Y=80^{\\circ}$. What is the size of angle $V W Y$ ? <image1>"
+    },
+    {
+        "prompt": "Each object shown is made up of 7 cubes. Which of $\\mathrm{P}, \\mathrm{Q}, \\mathrm{R}$ and $\\mathrm{S}$ can be obtained by rotating $\\mathrm{T}$ ?\n<image1>"
+    },
+    {
+        "prompt": "In the diagram on the right, $Q S R$ is a straight line, $\\angle Q P S=12^{\\circ}$ and $P Q=P S=R S$.\nWhat is the size of $\\angle Q P R$ ? <image1>"
+    },
+    {
+        "prompt": "In each of the squares in the grid, one of the letters $P, Q, R$ and $S$ must be entered in such a way that adjacent squares (whether connected by an edge or just a corner) do not contain the same letter. Some of the letters have already been entered as shown.\nWhat are the possibilities for the letter in the shaded square?\n<image1>"
+    },
+    {
+        "prompt": "Inside a square of area $36 \\mathrm{~cm}^{2}$, there are shaded regions as shown. The total shaded area is $27 \\mathrm{~cm}^{2}$. What is the value of $p+q+r+s$ ? <image1>"
+    },
+    {
+        "prompt": "Cathie folded a square sheet of paper in half twice and then cut it through the middle twice, as shown in the diagram, before unfolding it all. How many of the pieces that she obtained were squares? <image1>"
+    },
+    {
+        "prompt": "Aisha has a strip of paper with the numbers $1,2,3,4$ and 5 written in five cells as shown. She folds the strip so that the cells overlap, forming 5 layers. Which of the following configurations, from top layer to bottom layer, is it not possible to obtain? <image1>"
+    },
+    {
+        "prompt": "There are five big trees and three paths in a park. It has been decided to plant a sixth tree so that there are the same number of trees on either side of each path. In which region of the park should the sixth tree be planted? <image1>"
+    },
+    {
+        "prompt": "Evita wants to write the numbers 1 to 8 in the boxes of the grid shown, so that the sums of the numbers in the boxes in each row are equal and the sums of the numbers in the boxes in each column are equal. She has already written numbers 3,4 and 8 , as shown. What number should she write in the shaded box? <image1>"
+    },
+    {
+        "prompt": "It takes 9 litres of paint to cover the surface of the cube on the left.\n<image1>\nHow much paint would it take to cover the surface of the shape on the right?"
+    },
+    {
+        "prompt": "A map of Wonderland shows five cities. Each city is joined to every other city by a road. Alice's map, as shown, is incomplete. How many roads are missing? <image1>"
+    },
+    {
+        "prompt": "Patricia painted some of the cells of a $4 \\times 4$ grid. Carl counted how many red cells there were in each row and in each column and created a table to show his answers.\nWhich of the following tables could Carl have created?\n<image1>"
+    },
+    {
+        "prompt": "Barney has 16 cards: 4 blue $(B), 4$ red $(R), 4$ green $(G)$ and 4 yellow (Y). He wants to place them in the square shown so that every row and every column has exactly one of each card. The diagram shows how he started. How many different ways can he finish?\n<image1>"
+    },
+    {
+        "prompt": "Andrew, the absent-minded mountain climber, climbed a mountain range, with a profile as shown in Figure 1 from point $P$ to point $Q$. From time to time he had to turn back to find bits of his equipment that he had dropped. The graph of the height $H$ of his position at time $t$ is shown in Figure 2 to the same scale as Figure 1. How many times did he turn back?\n<image1>"
+    },
+    {
+        "prompt": "Two squares with side 1 have a common vertex, and the edge of one of them lies along the diagonal of the other. What is the area of the overlap between the squares? <image1>"
+    },
+    {
+        "prompt": "In the diagram, angle $P Q R$ is $20^{\\circ}$, and the reflex angle at $P$ is $330^{\\circ}$. The line segments $Q T$ and $S U$ are perpendicular. What is the size of angle RSP? <image1>"
+    },
+    {
+        "prompt": "A triangular piece of paper is folded along the dotted line shown in the left-hand diagram to form the heptagon shown in the right-hand diagram. The total area of the shaded parts of the heptagon is $1 \\mathrm{~cm}^{2}$. The area of the original triangle is $1 \\frac{1}{2}$ times the area of the heptagon. What is the area of the original triangle, in $\\mathrm{cm}^{2}$ ? <image1>"
+    },
+    {
+        "prompt": "The trapezium shown in the diagram is rotated anti-clockwise by $90^{\\circ}$ around the origin $O$, and then reflected in the $x$-axis. Which of the following shows the end result of these transformations? <image1>\n<image2>"
+    },
+    {
+        "prompt": "The rectangle $A B C D$ lies below the $x$-axis, and to the left of the $y$-axis. The edges of the rectangle are parallel to the coordinate axes. For each point $A, B, C, D$, the $y$-coordinate is divided by the $x$-coordinate. Which of the points yields the smallest value from this calculation? <image1>"
+    },
+    {
+        "prompt": "Sepideh is making a magic multiplication square using the numbers 1, 2, 4, 5, 10, 20, 25, 50 and 100 . The products of the numbers in each row, in each column and in the two diagonals should all be the same. In the figure you can see how she has started. Which number should Sepideh place in the cell with the question mark? <image1>"
+    },
+    {
+        "prompt": "Which of the following diagrams shows the locus of the midpoint of the wheel when the wheel rolls along the zig-zag curve shown?\n<image1>"
+    },
+    {
+        "prompt": "On Nadya's smartphone, the diagram shows how much time she spent last week on four of her apps. This week she halved the time spent on two of these apps, but spent the same amount of time as the previous week on the other two apps.\n<image1>\nWhich of the following could be the diagram for this week?\n<image2>"
+    },
+    {
+        "prompt": "In triangle $ABC$ lines $CE$ and $AD$ are drawn so that\n\n$\\frac{CD}{DB}=\\frac{3}{1}$ and $\\frac{AE}{EB}=\\frac{3}{2}$. Let $r=\\frac{CP}{PE}$\n\nwhere $P$ is the intersection point of $CE$ and $AD$. Then $r$ equals:\n\n<image1>"
+    },
+    {
+        "prompt": "<image1>\n\nIn this diagram semi-circles are constructed on diameters $\\overline{AB}$, $\\overline{AC}$, and $\\overline{CB}$, so that they are mutually tangent.  If $\\overline{CD} \\bot \\overline{AB}$, then the ratio of the shaded area to the area of a circle with $\\overline{CD}$ as radius is:"
+    },
+    {
+        "prompt": "In the accompanying figure, segments $AB$ and $CD$ are parallel, the measure of angle $D$ is twice the measure of angle $B$, and the measures of segments $AB$ and $CD$ are $a$ and $b$ respectively.\n<image1>\nThen the measure of $AB$ is equal to"
+    },
+    {
+        "prompt": "<image1>\n\nIn triangle $ABC$, $AB=AC$ and $\\measuredangle A=80^\\circ$. If points $D$, $E$, and $F$ lie on sides $BC$, $AC$ and $AB$, respectively, and $CE=CD$ and $BF=BD$, then $\\measuredangle EDF$ equals"
+    },
+    {
+        "prompt": "Part of an \"$n$-pointed regular star\" is shown.  It is a simple closed polygon in which all $2n$ edges are congruent, angles $A_{1}$, $A_{2}$, $\\ldots$, $A_{n}$ are congruent and angles $B_{1}$, $B_{2}$, $\\ldots$, $B_{n}$ are congruent.  If the acute angle at $A_{1}$ is $10^{\\circ}$ less than the acute angle at $B_{1}$, then $n = $\n<image1>"
+    },
+    {
+        "prompt": "Eight congruent equilateral triangles, each of a different color, are used to construct a regular octahedron. How many distinguishable ways are there to construct the octahedron? (Two colored octahedrons are distinguishable if neither can be rotated to look just like the other.)\n<image1>"
+    },
+    {
+        "prompt": "A unit cube has vertices $P_1, P_2, P_3, P_4, P_1', P_2', P_3'$, and $P_4'$. Vertices $P_2, P_3$, and $P_4$ are adjacent to $P_1$, and for $1\\leq i\\leq 4$, vertices $P_i$ and $P_i'$ are opposite to each other. A regular octahedron has one vertex in each of the segments $P_1P_2, P_1P_3, P_1P_4, P_1'P_2', P_1'P_3'$, and $P_1'P_4'$. What is the octahedron's side length?\n<image1>"
+    },
+    {
+        "prompt": "<image1>\n\nA bar graph shows the number of hamburgers sold by a fast food chain each season.  However, the bar indicating the number sold during the winter is covered by a smudge.  If exactly $ 25 \\%$ of the chain's hamburgers are sold in the fall, how many million hamburgers are sold in the winter?"
+    },
+    {
+        "prompt": "The population of a small town is $480$.  The graph indicates the number of females and males in the town, but the vertical scale-values are omitted.  How many males live in the town?\n\n<image1>"
+    },
+    {
+        "prompt": "This line graph represents the price of a trading card during the first $6$ months of $1993$.\n<image1>\n\nThe greatest monthly drop in price occurred during"
+    },
+    {
+        "prompt": "The pie charts below indicate the percent of students who prefer golf, bowling, or tennis at East Junior High School and West Middle School.  The total number of students at East is $2000$ and at West, $2500$.  In the two schools combined, the percent of students who prefer tennis is\n\n<image1>"
+    },
+    {
+        "prompt": "The horizontal and vertical distances between adjacent points equal $1$ unit.  The area of triangle $ABC$ is\n\n<image1>"
+    },
+    {
+        "prompt": "The students in Mrs. Sawyer's class were asked to do a taste test of five kinds of candy. Each student chose one kind of candy. A bar graph of their preferences is shown. What percent of her class chose candy E?\n\n<image1>"
+    },
+    {
+        "prompt": "$\\textbf{Juan's Old Stamping Grounds}$\nJuan organizes the stamps in his collection by country and by the decade in which they were issued.  The prices he paid for them at a stamp shop were: Brazil and France, 6 cents each, Peru 4 cents each, and Spain 5 cents each.  (Brazil and Peru are South American countries and France and Spain are in Europe.)\n<image1>\nIn dollars and cents, how much did his South American stampes issued before the '70s cost him?"
+    },
+    {
+        "prompt": "Fourteen white cubes are put together to form the figure on the right. The complete surface of the figure, including the bottom, is painted red. The figure is then separated into individual cubes. How many of the individual cubes have exactly four red faces?\n\n<image1>"
+    },
+    {
+        "prompt": "Tess runs counterclockwise around rectangular block JKLM. She lives at corner J. Which graph could represent her straight-line distance from home?\n\n<image1>"
+    },
+    {
+        "prompt": "The results of a cross-country team's training run are graphed below. Which student has the greatest average speed?\n<image1>"
+    },
+    {
+        "prompt": "Jorge's teacher asks him to plot all the ordered pairs $ (w, l)$ of positive integers for which $ w$ is the width and $ l$ is the length of a rectangle with area 12. What should his graph look like?"
+    },
+    {
+        "prompt": "Candy sales from the Boosters Club from January through April are shown. What were the average sales per month in dollars?\n<image1>"
+    },
+    {
+        "prompt": "Alicia, Brenda, and Colby were the candidates in a recent election for student president. The pie chart below shows how the votes were distributed among the three candidates. If Brenda received 36 votes, then how many votes were cast all together?\n\n<image1>"
+    },
+    {
+        "prompt": "In the figure below, choose point $D$ on $\\overline{BC}$ so that $\\triangle ACD$ and $\\triangle ABD$ have equal perimeters. What is the area of $\\triangle ABD$?\n<image1>"
+    },
+    {
+        "prompt": "A tortoise challenges a hare to a race. The hare eagerly agrees and quickly runs ahead, leaving the slow-moving tortoise behind. Confident that he will win, the hare stops to take a nap. Meanwhile, the tortoise walks at a slow steady pace for the entire race. The hare awakes and runs to the finish line, only to find the tortoise already there. Which of the following graphs matches the description of the race, showing the distance $d$ traveled by the two animals over time $t$ from start to finish?$\\phantom{h}$\n\n<image1>"
+    },
+    {
+        "prompt": "The letter M in the figure below is first reflected over the line $q$ and then reflected over the line $p$. What is the resulting image?\n<image1>\n\n<image2>"
+    },
+    {
+        "prompt": "One sunny day, Ling decided to take a hike in the mountains. She left her house at $8 \\, \\textsc{am}$, drove at a constant speed of $45$ miles per hour, and arrived at the hiking trail at $10 \\, \\textsc{am}$. After hiking for $3$ hours, Ling drove home at a constant speed of $60$ miles per hour. Which of the following graphs best illustrates the distance between Ling's car and her house over the course of her trip?\n\n<image1>"
+    },
+    {
+        "prompt": "Malaika is skiing on a mountain. The graph below shows her elevation, in meters, above the base of the mountain as she skis along a trail. In total, how many seconds does she spend at an elevation between $4$ and $7$ meters?\n<image1>"
+    },
+    {
+        "prompt": "If the point $(3,4)$ is reflected in the $x$-axis, what are the coordinates of its image?\n\n<image1>"
+    },
+    {
+        "prompt": "The lines $y = -2x + 8$ and $y = \\frac{1}{2} x - 2$ meet at $(4,0),$ as shown. What is the area of the triangle formed by these two lines and the line $x = -2?$ <image1>"
+    },
+    {
+        "prompt": "In triangle $ABC$, $\\angle BAC = 72^\\circ$.  The incircle of triangle $ABC$ touches sides $BC$, $AC$, and $AB$ at $D$, $E$, and $F$, respectively.  Find $\\angle EDF$, in degrees.\n\n<image1>"
+    }
+]
