@@ -20,7 +20,7 @@ preprocessing_num_workers: 16
 ### output
 output_dir: saves/common_sense_reasoning/ARC-c
 logging_steps: 10
-save_steps: 1
+save_steps: 100
 plot_loss: true
 overwrite_output_dir: true
 
