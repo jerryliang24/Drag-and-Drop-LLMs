@@ -34,10 +34,8 @@ https://github.com/user-attachments/assets/ec1ea0d1-3e1c-47b7-8c30-3623866d9369
 
 
 ## 📖 Abstract
-Modern Parameter-Efficient Fine-Tuning (PEFT) methods such as low-rank adap
-tation (LoRA) reduce the cost of customizing large language models (LLMs), yet
- still require a separate optimization run for every downstream dataset. We intro
-duce Drag-and-Drop LLMs (DnD), a prompt-conditioned parameter generator
+Modern Parameter-Efficient Fine-Tuning (PEFT) methods such as low-rank adaptation (LoRA) reduce the cost of customizing large language models (LLMs), yet
+ still require a separate optimization run for every downstream dataset. We introduce Drag-and-Drop LLMs (DnD), a prompt-conditioned parameter generator
  that eliminates per-task training by mapping a handful of unlabeled task prompts
  directly to LoRA weight updates. A lightweight text encoder distills each prompt
  batch into condition embeddings, which are then transformed by a cascaded hyper
@@ -87,7 +85,7 @@ python download_data.py --lora_type <lora_type>
 
 If you want to enjoy the process of checkpoint collection, see the [Adapt your own dataset](#adapt-your-own-dataset) section for detailed instructions.
 
-4. Register whether you want to use wandb and your wandb key in ./workspace/main/config.json.
+4. Register whether you want to use wandb and your wandb key in [./workspace/main/config.json](https://github.com/jerryliang24/Drag-and-Drop-LLMs/blob/main/workspace/main/config.json).
 
 ```shell
 {"use_wandb": <bool>,
@@ -100,7 +98,7 @@ If you want to enjoy the process of checkpoint collection, see the [Adapt your o
 bash scripts/common_sense_reasoning/ARC-c/training_and_generation.sh
 ```
 
-You can refer to ./scripts folder for a variety of experiments, generating LLMs for common sense reasoning, coding, math, and multimodal tasks.
+You can refer to [./scripts](https://github.com/jerryliang24/Drag-and-Drop-LLMs/tree/main/scripts) folder for a variety of experiments, generating LLMs for common sense reasoning, coding, math, and multimodal tasks.
 
 
 ## 🤖 Advanced Usage
@@ -123,7 +121,7 @@ bash scripts/ablations/extractor_types/<type>_extractor.sh
 
 This experiment explores different condition extractors' (Word2Vector, Encoder-Decoder, Decoder-Only) influence on DnD's performance. Note that you need to first download the model in ./models folder.
 
-We also open-source other experiments' code in ./scripts/ablations folder, please feel free to explore!
+We also open-source other experiments' code in [./scripts/ablations](https://github.com/jerryliang24/Drag-and-Drop-LLMs/tree/main/scripts/ablations) folder, please feel free to explore!
 
 
 ### Adapt your own dataset
@@ -135,7 +133,7 @@ In this section, we will introduce how to train DnD on customized data-checkpoin
 
 1. Register the dataset
 
-You first need to place your dataset file in ./prepare/data folder in .json format, and register it in  ./prepare/data/dataset_info.json:
+You first need to place your dataset file in [./prepare/data](https://github.com/jerryliang24/Drag-and-Drop-LLMs/tree/main/prepare/data) folder in .json format, and register it in  [./prepare/data/dataset_info.json](https://github.com/jerryliang24/Drag-and-Drop-LLMs/blob/main/prepare/data/dataset_info.json):
 
 ```shell
 <dataset_name>:
@@ -216,13 +214,13 @@ preprocessing_num_workers: 16
 - After training, you need to do the following to get checkpoint collections.
   1. You need to observe the loss curve, and decide the starting point of fine-tuning for checkpoint collection.
   2. The trainer_state.json in the checkpoint folder (usually named checkpoint-xxx) needs to be modified, setting "save_steps"=1.
-  3. You can follow the scripts in ./prepare/training_scripts folder that end with "finetune" to design your fine-tuning process.
-  4. After running the scripts and obtaining multiple checkpoints, you can simply run ./workspace/datasets/process_datasets/post_process_ckpts.py to clean your checkpoint folder, deleting config files and rename checkpoints to ease the process of data loading.
+  3. You can follow the scripts in [./prepare/training_scripts](https://github.com/jerryliang24/Drag-and-Drop-LLMs/tree/main/prepare/training_scripts) folder that end with "finetune" to design your fine-tuning process.
+  4. After running the scripts and obtaining multiple checkpoints, you can simply run [./workspace/datasets/process_datasets/post_process_ckpts.py](https://github.com/jerryliang24/Drag-and-Drop-LLMs/blob/main/workspace/datasets/process_datasets/post_process_ckpts.py) to clean your checkpoint folder, deleting config files and rename checkpoints to ease the process of data loading.
 
 
 3. Calculate importance scores for the collected checkpoints.
 
-DnD utilizes a weighted MSE for training, assigning different importance to different layers' weights. The specific importance is calculated by the channel-wise variance and we provide scripts in ./workspace/datasets, like : criterion_weight_for_<model_type>.py. You need to select a script and adjust it accordingly.
+DnD utilizes a weighted MSE for training, assigning different importance to different layers' weights. The specific importance is calculated by the channel-wise variance and we provide scripts in [./workspace/datasets](https://github.com/jerryliang24/Drag-and-Drop-LLMs/tree/main/workspace/datasets), like : criterion_weight_for_<model_type>.py. You need to select a script and adjust it accordingly.
 
 ```diff
 
