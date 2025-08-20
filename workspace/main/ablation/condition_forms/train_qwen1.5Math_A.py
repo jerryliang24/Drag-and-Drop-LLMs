@@ -259,16 +259,8 @@ def train():
                     del state[key]
                 # noinspection PyTypeChecker
                 torch.save(state, os.path.join(config["save_folder"], config["tag"] + ".pth"))
-                if batch_idx == 1000:
-                    torch.save(state, os.path.join(config["save_folder"], config["tag"] + "1000.pth"))
-                if batch_idx == 2000:
-                    torch.save(state, os.path.join(config["save_folder"], config["tag"] + "2000.pth"))
-                if batch_idx == 3000:
-                    torch.save(state, os.path.join(config["save_folder"], config["tag"] + "3000.pth"))
-                if batch_idx == 4000:
-                    torch.save(state, os.path.join(config["save_folder"], config["tag"] + "4000.pth"))
-                if batch_idx == 5000:
-                    torch.save(state, os.path.join(config["save_folder"], config["tag"] + "5000.pth"))
+                if batch_idx % 1000 == 0:
+                    torch.save(state, os.path.join(config["save_folder"], config["tag"] + f"{batch_idx}.pth"))
                 if accelerator.is_main_process:
                     print("\nEvaluating on eval set:")
                 generate(iterator=eval_iterator, idx=batch_idx // config["save_every"])
