@@ -286,6 +286,13 @@ We use ./workspace/main/tasks/common_sense_reasoning/train_qwen0.5lora_ARC-c.py 
 ###################### on line 37 in ...<dataset_name>.py #######################
 
 
+###################### on line 47 in ...<dataset_name>.py #######################
+
+-max_text_length = xxx
++max_text_length = <The max prompt length in your dataset>
+
+###################### on line 47 in ...<dataset_name>.py #######################
+
 
 
 ###################### on line 42-90 in ...<dataset_name>.py #######################
