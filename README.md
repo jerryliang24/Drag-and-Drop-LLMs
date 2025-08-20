@@ -343,7 +343,7 @@ We use ./workspace/main/tasks/common_sense_reasoning/train_qwen0.5lora_ARC-c.py 
 -        "condition_dim": (128, max_text_length, 384),
 -        "kernel_size": 9,
 -    },
-+     <your desired model size>
++     <your desired model size (the features actually denotes the shape transition of input embeddings, pretty convenient isn't it?)>
 }
 ###################### on line 42-90 in ...<dataset_name>.py #######################
 ```

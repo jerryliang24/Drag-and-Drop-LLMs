@@ -165,7 +165,6 @@ model = Model(
     criterion_weight=config["criterion_weight"].view(1, -1, 1, 1),
     extractor_type=config["extractor_type"],
     extra_condition_module=config["extra_condition_module"],
-    layer_index=config["layer_index"],
 )
 
 # Optimizer

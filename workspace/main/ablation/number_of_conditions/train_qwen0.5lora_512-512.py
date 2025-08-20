@@ -80,7 +80,6 @@ config: dict[str, [float, int, str, dict]] = {
     "text_tokenizer": AutoTokenizer.from_pretrained(extractor),
     "extra_condition_module": AutoModel.from_pretrained(extractor, torch_dtype="auto").to(accelerator.device),
     "max_text_length": max_text_length,
-    "layer_index": 14,
     "model_config": {
         "features": [
             (512, max_text_length, 384),
@@ -168,7 +167,6 @@ model = Model(
     criterion_weight=config["criterion_weight"].view(1, -1, 1, 1),
     extractor_type=config["extractor_type"],
     extra_condition_module=config["extra_condition_module"],
-    layer_index=config["layer_index"],
 )
 
 # Optimizer
