@@ -14,7 +14,7 @@ from torch.utils.data import DataLoader
 from transformers import AutoModel, AutoTokenizer
 
 from workspace.dnd.dataset import Text2Qwen25LoRA_CondADataset as Dataset
-from workspace.dnd.model import HyperConvDecoderMdel_SuperLarge as Model
+from workspace.dnd.model import HyperConvDecoderModel_SuperLarge as Model
 from workspace.dnd.tokenizer import Qwen2515LoRA_Tokenizer2D as Tokenizer
 
 SEED = 999

@@ -1,3 +1,3 @@
-from .decoderonly import HyperConvDecoderMdel_SuperLarge, HyperConvDecoderModel, HyperConvDecoderModel_FullCond
+from .decoderonly import HyperConvDecoderModel_SuperLarge, HyperConvDecoderModel, HyperConvDecoderModel_FullCond
 from .qwen_extractor import LLM_Encoder, Text_Encoder
 from .text_embedding import Glove_Tokenizer

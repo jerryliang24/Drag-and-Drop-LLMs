@@ -236,7 +236,7 @@ class HyperConvDecoderModel_FullCond(HyperConvDecoderModel):
         return output
 
 
-class HyperConvDecoderMdel_SuperLarge(HyperConvDecoderModel_FullCond):
+class HyperConvDecoderModel_SuperLarge(HyperConvDecoderModel_FullCond):
     def __init__(
         self,
         config,

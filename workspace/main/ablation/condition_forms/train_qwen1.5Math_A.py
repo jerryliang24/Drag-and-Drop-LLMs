@@ -34,7 +34,7 @@ COND_ROOT = "./prepare/data"
 extractor = "./models/all-MiniLM-L12-v2"
 
 from workspace.dnd.dataset import Text2Qwen25LoRA_CondADataset as Dataset
-from workspace.dnd.model import HyperConvDecoderMdel_SuperLarge as Model
+from workspace.dnd.model import HyperConvDecoderModel_SuperLarge as Model
 from workspace.dnd.module import WarmupScheduler
 from workspace.dnd.tokenizer import Qwen2515LoRA_Tokenizer2D as Tokenizer
 from workspace.dnd.tools import calculate_mean_criterion_weight, start_monitor

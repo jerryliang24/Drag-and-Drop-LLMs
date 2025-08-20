@@ -33,7 +33,7 @@ CONFIG_ROOT = "./workspace/datasets/math1.5B"
 COND_ROOT = "./prepare/data"
 
 from workspace.dnd.dataset import Text2Qwen25LoRA_FullCondDataset as Dataset
-from workspace.dnd.model import HyperConvDecoderMdel_SuperLarge as Model
+from workspace.dnd.model import HyperConvDecoderModel_SuperLarge as Model
 from workspace.dnd.module import WarmupScheduler
 from workspace.dnd.tokenizer import Qwen2515LoRA_Tokenizer2D as Tokenizer
 from workspace.dnd.tools import calculate_mean_criterion_weight, start_monitor
