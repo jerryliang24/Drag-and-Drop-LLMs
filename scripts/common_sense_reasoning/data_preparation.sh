@@ -2,10 +2,11 @@ export CUDA_VISIBLE_DEVICES=4,5,6,7
 
 cd ./prepare
 
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_arcc_pretrain.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_arce_pretrain.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_boolq_pretrain.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_obqa_pretrain.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_piqa_pretrain.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_hellaswag_pretrain.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_winogrande_pretrain.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/ARC-c.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/ARC-e.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/BoolQ.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/OBQA.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/PIQA.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/HellaSwag.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/WinoGrande.yaml
+

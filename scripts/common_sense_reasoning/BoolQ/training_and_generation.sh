@@ -4,6 +4,6 @@ bash launch_multi.sh tasks/common_sense_reasoning/train_qwen0.5lora_BoolQ.py 4
 export CUDA_VISIBLE_DEVICES=0,1
 # Qwen0.5B has 14 attention heads and can only parallel on 2 or 7 GPUs
 
-python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ --test_dataset BoolQ
-python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ --test_dataset BoolQ
-python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ --test_dataset BoolQ
+python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ1000 --test_dataset BoolQ
+python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ2000 --test_dataset BoolQ
+python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ3000 --test_dataset BoolQ

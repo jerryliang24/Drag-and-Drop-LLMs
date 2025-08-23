@@ -2,10 +2,10 @@ export CUDA_VISIBLE_DEVICES=4,5,6,7
 
 cd ./prepare
 
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_arcc_finetune.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_arce_finetune.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_boolq_finetune.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_obqa_finetune.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_piqa_finetune.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_hellaswag_finetune.yaml
-llamafactory-cli train training_scripts/common_sense_reasoning/qwen2.5_lora_sft_winogrande_finetune.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/ARC-c_finetune.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/ARC-e_finetune.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/BoolQ_finetune.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/OBQA_finetune.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/PIQA_finetune.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/HellaSwag_finetune.yaml
+llamafactory-cli train training_scripts/common_sense_reasoning/WinoGrande_finetune.yaml
