@@ -53,7 +53,7 @@ config: dict[str, [float, int, str, dict]] = {
     "need_test": False,
     "use_wandb": True,
     # data setting
-    "token_size": (16, 256),
+    "token_size": (18, 258),
     "real_length": 80,
     "train_checkpoint_folders": [f"{DATASET_ROOT}/{dataset}" for dataset in datasets],
     "test_checkpoint_folder": "",
@@ -90,7 +90,7 @@ config: dict[str, [float, int, str, dict]] = {
             (512, 125, 300),
             (1024, 64, 256),
             (2048, 32, 256),
-            (4508, 16, 256),
+            (4508, 18, 258),
         ],
         "condition_dim": (num_texts, modified_length, 384),
         "kernel_size": 11,

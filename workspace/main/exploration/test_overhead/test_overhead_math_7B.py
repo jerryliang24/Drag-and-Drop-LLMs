@@ -38,7 +38,7 @@ config: dict[str, [float, int, str, dict]] = {
     # global setting
     "need_test": False,
     # data setting
-    "token_size": (16, 256),
+    "token_size": (18, 514),
     "real_length": 20,
     "num_texts": num_texts,
     "criterion_weight": torch.load(
@@ -51,15 +51,15 @@ config: dict[str, [float, int, str, dict]] = {
     "modified_length": modified_length,
     "model_config": {
         "features": [
-            (num_texts, modified_length, 384),
-            (64, 500, 300),
-            (256, 500, 300),
-            (512, 125, 300),
-            (1024, 64, 256),
-            (2048, 32, 256),
-            (4508, 16, 256),
+            (16, modified_length, 384),
+            (64, 500, 384),
+            (256, 125, 400),
+            (512, 64, 400),
+            (1024, 64, 400),
+            (2048, 32, 400),
+            (4928, 18, 514),
         ],
-        "condition_dim": (num_texts, modified_length, 384),
+        "condition_dim": (16, modified_length, 384),
         "kernel_size": 11,
     },
 }

@@ -18,13 +18,13 @@ for dataset_tag in datasets:
     Dataset.dtype = torch.float32
 
     dataset = Dataset(
-        tokenizer=Tokenizer(token_size=(8, 128)),
+        tokenizer=Tokenizer(token_size=(10, 130)),
         checkpoint_folder=f"{DATASET_ROOT}/{dataset_tag}",
         expected_iteration=None,
         real_length=50,
     )
 
-    mean = torch.zeros((4296, 8, 128))
+    mean = torch.zeros((4296, 10, 130))
     now_numbers = 0
     for i in tqdm(range(len(dataset))):
         tokens = dataset[i][0]
@@ -32,7 +32,7 @@ for dataset_tag in datasets:
         now_numbers += 1
     del tokens
 
-    var = torch.zeros((4296, 8, 128))
+    var = torch.zeros((4296, 10, 130))
     now_numbers = 0
     for i in tqdm(range(len(dataset))):
         tokens = dataset[i][0]

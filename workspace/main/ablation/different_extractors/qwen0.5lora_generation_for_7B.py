@@ -46,7 +46,7 @@ config: dict[str, [float, int, str, dict]] = {
     # global setting
     "need_test": False,
     # data setting
-    "token_size": (8, 128),
+    "token_size": (10, 130),
     "real_length": 50,
     "num_texts": 20,
     "criterion_weight": torch.load(
@@ -66,7 +66,7 @@ config: dict[str, [float, int, str, dict]] = {
             (128, 128, 1024),
             (256, 32, 512),
             (1024, 10, 256),
-            (4296, 8, 128),
+            (4296, 10, 130),
         ],
         "condition_dim": (num_texts, max_text_length, 3584),
         "kernel_size": 9,

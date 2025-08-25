@@ -303,7 +303,7 @@ We use ./workspace/main/tasks/common_sense_reasoning/train_qwen0.5lora_ARC-c.py 
     "need_test": False,
     "use_wandb": True,
     # data setting
--    "token_size": (8, 128),
+-    "token_size": (10, 130),
 +    "token_size": <suitable token size>
 -    "real_length": 50,
 +    "real_length": <number of checkpoints you like to use>
@@ -345,7 +345,7 @@ We use ./workspace/main/tasks/common_sense_reasoning/train_qwen0.5lora_ARC-c.py 
 -            (128, 100, 256), (256, 50, 200),
 -            (512, 50, 200),
 -            (1024, 25, 200), (1024, 10, 200), (2048, 10, 200),
--            (4296, 8, 128),
+-            (4296, 10, 130),
 -        ],
 -        "condition_dim": (128, max_text_length, 384),
 -        "kernel_size": 9,
