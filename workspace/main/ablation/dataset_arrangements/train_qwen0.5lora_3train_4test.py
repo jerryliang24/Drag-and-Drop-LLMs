@@ -253,8 +253,8 @@ def train():
         if accelerator.sync_gradients:
             accelerator.clip_grad_norm_(model.parameters(), config["max_grad_norm"])
         optimizer.step()
-        if accelerator.is_main_process:
-            scheduler.step(batch_idx)
+        scheduler.step(batch_idx)
+        
             # log ans update
             if USE_WANDB:
                 wandb.log(
