@@ -271,7 +271,7 @@ def train():
                     train_loss = 0
             if batch_idx % config["save_every"] == 0:
                 os.makedirs(config["save_folder"], exist_ok=True)
-                state = accelerator.unwrap_model(model).state_dict()
+                state = accelerator.get_state_dict(model)
                 keys_to_delete = [key for key in state.keys() if key.startswith("condition_module")]
                 for key in keys_to_delete:
                     del state[key]

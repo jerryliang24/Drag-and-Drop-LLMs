@@ -250,14 +250,14 @@ def train():
                     train_loss = 0
             if batch_idx % config["save_every"] == 0:
                 os.makedirs(config["save_folder"], exist_ok=True)
-                state = accelerator.unwrap_model(model).state_dict()
+                state = accelerator.get_state_dict(model)
                 keys_to_delete = [key for key in state.keys() if key.startswith("condition_module")]
                 for key in keys_to_delete:
                     del state[key]
                 # noinspection PyTypeChecker
                 if batch_idx % 1000 == 0:
-                    torch.save(state, os.path.join(config["save_folder"], config["tag"] + f"{batch_idx}.pth"))
-                torch.save(state, os.path.join(config["save_folder"], config["tag"] + ".pth"))
+                    accelerator.save(state, os.path.join(config["save_folder"], config["tag"] + f"{batch_idx}.pth"))
+                accelerator.save(state, os.path.join(config["save_folder"], config["tag"] + ".pth"))
                 if accelerator.is_main_process:
                     print("\nEvaluating on eval set:")
                 generate(iterator=eval_iterator, idx=batch_idx // config["save_every"])
