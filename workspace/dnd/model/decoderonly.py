@@ -259,18 +259,17 @@ class HyperConvDecoderModel_SuperLarge(HyperConvDecoderModel_FullCond):
         )
         self.down_proj = nn.Linear(max_length, modified_length)
         self.gate_proj = nn.Linear(modified_length, modified_length)
-        nn.init.normal_(self.down_proj.weight, 0, 1)
-        nn.init.normal_(self.gate_proj.weight, 0, 1)
+        self.act = nn.SiLU()
 
     def forward(
         self, source: Tensor = None, mask: Tensor = None, condition: Tensor = None, target: Tensor = None, **kwargs
     ) -> Tensor:
+
         if kwargs.get("generate") is not None:
             return self.generate(source, mask, condition, target, **kwargs)
+            
         condition = self.extract_condition(condition)
-
-        B, N, L, C = condition.shape
-        condition = self.gate_proj(self.down_proj(condition.view(B, N, C, L))).view(B, N, -1, C)
+        condition = self.gate_proj(self.act(self.down_proj(condition.permute(0, 1, 3, 2)))).permute(0, 1, 3, 2)
 
         if kwargs.get("noise_enhance") is not None:
             condition += torch.randn_like(condition) * kwargs.get("noise_enhance")
@@ -284,8 +283,9 @@ class HyperConvDecoderModel_SuperLarge(HyperConvDecoderModel_FullCond):
     def generate(
         self, source: Tensor = None, mask: Tensor = None, condition: Tensor = None, target: Tensor = None, **kwargs
     ) -> Tensor:
+        
         condition = self.extract_condition(condition)
-        B, N, L, C = condition.shape
-        condition = self.gate_proj(self.down_proj(condition.view(B, N, C, L))).view(B, N, -1, C)
+        condition = self.gate_proj(self.act(self.down_proj(condition.permute(0, 1, 3, 2)))).permute(0, 1, 3, 2)
         output = self.model(condition)
         return output
+
