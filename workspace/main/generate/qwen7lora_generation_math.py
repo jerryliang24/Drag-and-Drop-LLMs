@@ -23,7 +23,7 @@ from workspace.dnd.tokenizer import Qwen257BLoRA_Tokenizer2D as Tokenizer
 
 SEED = 999
 DATASET_ROOT = "./data/math7B"
-CONFIG_ROOT = "./workspace/datasets/text2qwen25lora7B"
+CONFIG_ROOT = "./workspace/datasets/math7B"
 COND_ROOT = "./prepare/data"
 SAVE_ROOT = "./generated/math7B"
 extractor = "./models/all-MiniLM-L12-v2"
@@ -200,7 +200,7 @@ def main(eval_dataset: str, test_dataset: str):
 
     # load module
     test_set = Dataset(
-        checkpoint_folders=[f"{DATASET_ROOT}/Code-74k-ShareGPT"],
+        checkpoint_folders=[f"{DATASET_ROOT}/Math-Plus"],
         tokenizer=tokenizer,
         expected_iteration=None,
         real_length=config["real_length"],
@@ -225,11 +225,11 @@ def main(eval_dataset: str, test_dataset: str):
 
     process_adapter_path(f"{SAVE_ROOT}/{eval_dataset}T_on_{test_dataset}V")
     print("==> Start testing..")
-
+    benchmark = "math_gen_1ed9c2" if test_dataset == "MATH" else "gsm8k_gen_1d7fe4"
     for i in range(config["real_length"]):
         args = [
             "--base_model_name",
-            "./models/Qwen2.5-1.5B-Instruct",
+            "./models/Qwen2.5-7B-Instruct",
             "--output_dir",
             f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
             "--lora_model_path",
@@ -239,24 +239,18 @@ def main(eval_dataset: str, test_dataset: str):
         subprocess.run(["python", "./benchmark/merge_lora.py"] + args)
         subprocess.run(
             [
-                "opencompass",
-                "--datasets",
-                "gsm8k_gen_1d7fe4",
-                "--hf-type",
-                "chat",
-                "--hf-path",
-                f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
-                "--accelerator",
-                "vllm",
+                "opencompass", "--datasets", benchmark,
+                "--hf-type", "chat",
+                "--hf-path", f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
+                "--accelerator", "vllm",
+                "--max-num-workers", "8",
+                # "--work_dir", f"{RES_ROOT}/{test_dataset}/{eval_dataset}T_on_{test_dataset}V_{i}"
             ]
         )
 
         import shutil
-
-        shutil.rmtree(
-            f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
-        )
-
+        shutil.rmtree(f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged")
+        shutil.rmtree(f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}")
 
 if __name__ == "__main__":
     Fire(main)
