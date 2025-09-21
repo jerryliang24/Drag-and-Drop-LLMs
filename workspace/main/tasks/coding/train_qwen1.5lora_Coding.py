@@ -223,6 +223,7 @@ def train():
         optimizer.step()
         scheduler.step(batch_idx)
         
+        if accelerator.is_main_process:
             # log ans update
             if USE_WANDB:
                 wandb.log(
