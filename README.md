@@ -12,6 +12,9 @@
 '></a>
 </div>
 
+## Updates
+* 🚀 **September 19, 2025**: **DnD** has been accepted by **NeurIPS 2025**!
+
 ## 🧭 Contents
 
 - 🎥 [Quick Demo](#-customize-your-llms-wo-training-in-seconds)
