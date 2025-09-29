@@ -46,7 +46,7 @@ config: dict[str, [float, int, str, dict]] = {
     "need_test": False,
     # data setting
     "token_size": (10, 130),
-    "real_length": 10,
+    "real_length": 50,
     "num_texts": 128,
     "criterion_weight": torch.load(
         f"{CONFIG_ROOT}/{dataset_tag}/criterion_weight.pt", map_location="cpu", weights_only=True
@@ -228,20 +228,20 @@ def main(eval_dataset: str, test_dataset: str):
 
     for i in range(config["real_length"]):
         args = [
-            "--model_name_or_path",
-            "../models/Qwen2.5-0.5B-Instruct",
-            "--save_name",
-            f"{RES_ROOT}/{test_dataset}/{eval_dataset}T_on_{test_dataset}V_{i}.jsonl",
-            "--dataset",
-            f"{test_dataset}_test",
-            "--adapter_name_or_path",
-            f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}",
+            "--model_name_or_path", "../models/Qwen2.5-0.5B-Instruct",
+            "--save_name", f"{RES_ROOT}/{test_dataset}/{eval_dataset}T_on_{test_dataset}V_{i}.jsonl",
+            "--dataset", f"{test_dataset}_test",
+            "--adapter_name_or_path", f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}",
         ]
+        
         subprocess.run(["python", "scripts/vllm_infer.py"] + args)
         subprocess.run(
             ["python", "scripts/calculate_acc.py"]
             + ["--file", f"{RES_ROOT}/{test_dataset}/{eval_dataset}T_on_{test_dataset}V_{i}.jsonl"]
         )
+        
+        import shutil
+        shutil.rmtree(f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}")
 
 
 if __name__ == "__main__":

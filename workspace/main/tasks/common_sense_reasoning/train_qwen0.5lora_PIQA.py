@@ -27,6 +27,7 @@ from torch.utils.data import DataLoader
 from transformers import AutoModel, AutoTokenizer
 
 accelerate.utils.set_seed(SEED)
+dataset_tag = "PIQA"
 
 DATASET_ROOT = "./data/common_sense_reasoning"
 CONFIG_ROOT = f"./workspace/datasets/common_sense_reasoning"
@@ -40,7 +41,7 @@ from workspace.dnd.tokenizer import Qwen2505LoRA_Tokenizer2D as Tokenizer
 from workspace.dnd.tools import calculate_mean_criterion_weight, start_monitor
 
 datasets = ["ARC-e", "OBQA", "BoolQ", "WinoGrande", "ARC-c", "HellaSwag"]
-dataset_tag = "PIQA"
+
 
 accelerator = Accelerator()
 max_text_length = 384
@@ -63,13 +64,12 @@ config: dict[str, [float, int, str, dict]] = {
     "num_workers": 8,
     "prefetch_factor": 1,
     "warmup_steps": 1,
-    "total_steps": 1000,
+    "total_steps": 10010,
     "learning_rate": 3e-5,
     "weight_decay": 0.1,
     "max_grad_norm": 1.0,
     "save_every": 100,
     "print_every": 20,
-    "condition_paths": [f"{CONFIG_ROOT}/{dataset}/fuse_features_middle_layer.pt" for dataset in datasets],
     "num_texts": 128,
     "save_folder": "./checkpoints",
     "noise_enhance": 0.0001,
@@ -239,7 +239,7 @@ def train():
             # log ans update
             if USE_WANDB:
                 wandb.log(
-                    {"train_loss": loss.item(), "learning_rate:": optimizer.state_dict()["param_groups"][0]["lr"]}
+                    {"train_loss": loss.item(), "learning_rate": optimizer.state_dict()["param_groups"][0]["lr"]}
                 )  # update diction
             else:  # not use wandb
                 # noinspection PyUnboundLocalVariable
@@ -256,7 +256,7 @@ def train():
                     del state[key]
                 # noinspection PyTypeChecker
                 accelerator.save(state, os.path.join(config["save_folder"], config["tag"] + ".pth"))
-                if batch_idx % 200 == 0:
+                if batch_idx % 1000 == 0:
                     accelerator.save(state, os.path.join(config["save_folder"], config["tag"] + f"{batch_idx}.pth"))
                 if accelerator.is_main_process:
                     print("\nEvaluating on eval set:")
@@ -264,8 +264,6 @@ def train():
                 if accelerator.is_main_process:
                     print("\nEvaluating on test set:")
                 generate(iterator=test_iterator, idx=batch_idx // config["save_every"])
-                # print("\nEvaluating on test set:")
-                # generate(iterator=test_iterator)
                 torch.cuda.empty_cache()
         if batch_idx >= config["total_steps"]:
             break

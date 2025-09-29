@@ -239,7 +239,7 @@ def train():
             # log ans update
             if USE_WANDB:
                 wandb.log(
-                    {"train_loss": loss.item(), "learning_rate:": optimizer.state_dict()["param_groups"][0]["lr"]}
+                    {"train_loss": loss.item(), "learning_rate": optimizer.state_dict()["param_groups"][0]["lr"]}
                 )  # update diction
             else:  # not use wandb
                 # noinspection PyUnboundLocalVariable
@@ -264,7 +264,6 @@ def train():
                 if accelerator.is_main_process:
                     print("\nEvaluating on test set:")
                 generate(iterator=test_iterator, idx=batch_idx // config["save_every"])
-
                 torch.cuda.empty_cache()
         if batch_idx >= config["total_steps"]:
             break

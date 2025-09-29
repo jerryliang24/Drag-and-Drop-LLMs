@@ -7,3 +7,6 @@ export CUDA_VISIBLE_DEVICES=0,1
 python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ1000 --test_dataset BoolQ
 python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ2000 --test_dataset BoolQ
 python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ3000 --test_dataset BoolQ
+python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ4000 --test_dataset BoolQ
+python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ5000 --test_dataset BoolQ
+python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset BoolQ --test_dataset BoolQ
