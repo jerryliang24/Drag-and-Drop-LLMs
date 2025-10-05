@@ -5,7 +5,6 @@ import sys
 root = os.sep + os.sep.join(__file__.split(os.sep)[1 : __file__.split(os.sep).index("Drag-and-Drop-LLMs") + 1])
 sys.path.append(root)
 os.chdir(root)
-os.environ["NUM_PROCESSES"] = "1"
 model_type = os.path.basename(__file__).split("_")[0]
 
 import gc
@@ -47,7 +46,7 @@ config: dict[str, [float, int, str, dict]] = {
     "need_test": False,
     # data setting
     "token_size": (18, 258),
-    "real_length": 20,
+    "real_length": 10,
     "num_texts": num_texts,
     "criterion_weight": torch.load(
         f"{CONFIG_ROOT}/{dataset_tag}/criterion_weight.pt", map_location="cpu", weights_only=True
@@ -203,7 +202,7 @@ def main(eval_dataset: str, test_dataset: str):
 
     # load module
     test_set = Dataset(
-        checkpoint_folders=[f"{DATASET_ROOT}/Code-74k-ShareGPT"],
+        checkpoint_folders=[f"{DATASET_ROOT}/Math-Plus"],
         tokenizer=tokenizer,
         expected_iteration=None,
         real_length=config["real_length"],
@@ -243,23 +242,17 @@ def main(eval_dataset: str, test_dataset: str):
         subprocess.run(["python", "./benchmark/merge_lora.py"] + args)
         subprocess.run(
             [
-                "opencompass",
-                "--datasets",
-                benchmark,
-                "--hf-type",
-                "chat",
-                "--hf-path",
-                f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
-                "--accelerator",
-                "vllm",
+                "opencompass", "--datasets", benchmark,
+                "--hf-type", "chat",
+                "--hf-path", f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
+                "--accelerator", "vllm",
+                "--max-num-workers", "8"
             ]
         )
 
         import shutil
-
-        shutil.rmtree(
-            f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
-        )
+        shutil.rmtree(f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged")
+        shutil.rmtree(f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}")
 
 
 if __name__ == "__main__":

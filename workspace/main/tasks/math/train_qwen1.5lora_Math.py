@@ -64,7 +64,7 @@ config: dict[str, [float, int, str, dict]] = {
     "num_workers": 2,
     "prefetch_factor": 1,
     "warmup_steps": 1,
-    "total_steps": 5000,
+    "total_steps": 5010,
     "learning_rate": 3e-5,
     "weight_decay": 0.1,
     "max_grad_norm": 1.0,
@@ -241,7 +241,7 @@ def train():
             # log ans update
             if USE_WANDB:
                 wandb.log(
-                    {"train_loss": loss.item(), "learning_rate:": optimizer.state_dict()["param_groups"][0]["lr"]}
+                    {"train_loss": loss.item(), "learning_rate": optimizer.state_dict()["param_groups"][0]["lr"]}
                 )  # update diction
             else:  # not use wandb
                 # noinspection PyUnboundLocalVariable

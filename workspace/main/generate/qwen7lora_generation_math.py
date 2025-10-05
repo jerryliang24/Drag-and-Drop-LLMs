@@ -5,7 +5,6 @@ import sys
 root = os.sep + os.sep.join(__file__.split(os.sep)[1 : __file__.split(os.sep).index("Drag-and-Drop-LLMs") + 1])
 sys.path.append(root)
 os.chdir(root)
-os.environ["NUM_PROCESSES"] = "1"
 model_type = os.path.basename(__file__).split("_")[0]
 
 import gc
@@ -244,7 +243,6 @@ def main(eval_dataset: str, test_dataset: str):
                 "--hf-path", f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
                 "--accelerator", "vllm",
                 "--max-num-workers", "8",
-                # "--work_dir", f"{RES_ROOT}/{test_dataset}/{eval_dataset}T_on_{test_dataset}V_{i}"
             ]
         )
 
