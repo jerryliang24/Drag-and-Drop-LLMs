@@ -71,7 +71,7 @@ config: dict[str, [float, int, str, dict]] = {
     "num_workers": 2,
     "prefetch_factor": 1,
     "warmup_steps": 1,
-    "total_steps": 2500,
+    "total_steps": 5010,
     "learning_rate": 3e-5,
     "weight_decay": 0.1,
     "max_grad_norm": 1.0,

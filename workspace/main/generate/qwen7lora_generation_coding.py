@@ -1,3 +1,4 @@
+import json
 import os
 import sys
 
@@ -9,10 +10,14 @@ model_type = os.path.basename(__file__).split("_")[0]
 
 import shutil
 import subprocess
+import gc
 
-import torch
 from fire import Fire
 from transformers import AutoModel, AutoTokenizer
+
+from workspace.dnd.dataset import Text2Qwen25LoRA_FullCondDataset as Dataset
+from workspace.dnd.model import HyperConvDecoderModel_SuperLarge as Model
+from workspace.dnd.tokenizer import Qwen257BLoRA_Tokenizer2D as Tokenizer
 
 SEED = 999
 DATASET_ROOT = "./data/coding7B"
@@ -28,6 +33,7 @@ import torch
 
 torch.set_float32_matmul_precision("high")
 import accelerate.utils
+from torch.utils.data import DataLoader
 
 accelerate.utils.set_seed(SEED)
 max_text_length = 26624
@@ -176,42 +182,42 @@ def generate(model, loader, dataset, dstag_T, dstag_V):
 
 def main(eval_dataset: str, test_dataset: str):
     # Model
-    # print('==> Building model..')
-    # model = Model(
-    # config=config["model_config"],
-    # criterion_weight=config["criterion_weight"].view(1, -1, 1, 1),
-    # max_length=config["max_text_length"], modified_length=config["modified_length"],
-    # extractor_type=config["extractor_type"],extra_condition_module=config["extra_condition_module"],)
+    print('==> Building model..')
+    model = Model(
+    config=config["model_config"],
+    criterion_weight=config["criterion_weight"].view(1, -1, 1, 1),
+    max_length=config["max_text_length"], modified_length=config["modified_length"],
+    extractor_type=config["extractor_type"],extra_condition_module=config["extra_condition_module"],)
 
-    # tokenizer = Tokenizer(token_size=config["token_size"])
-    # diction = torch.load(f"./checkpoints/{model_type}__{eval_dataset}.pth", weights_only=True, map_location="cpu")
-    # model.load_state_dict(diction,strict=False)
-    # model.to(config["device"])
+    tokenizer = Tokenizer(token_size=config["token_size"])
+    diction = torch.load(f"./checkpoints/{model_type}__{eval_dataset}.pth", weights_only=True, map_location="cpu")
+    model.load_state_dict(diction,strict=False)
+    model.to(config["device"])
 
-    # # load module
-    # test_set = Dataset(
-    #     checkpoint_folders=[f"{DATASET_ROOT}/Code-74k-ShareGPT"],
-    #     tokenizer=tokenizer,
-    #     expected_iteration=None,
-    #     real_length=config["real_length"],
-    #     texts=[json.load(open(f"{COND_ROOT}/{test_dataset}.json","r",encoding="utf-8"))],
-    #     num_texts=config["num_texts"],
-    #     text_tokenizer=config["text_tokenizer"],
-    #     max_text_length=config["max_text_length"],
-    # )  # test_set
-    # test_loader = DataLoader(
-    #     dataset=test_set,
-    #     batch_size=1,
-    #     num_workers=0,
-    #     collate_fn=test_set.collate_fn_test,
-    #     shuffle=False,
-    # )  # test dataloader
+    # load module
+    test_set = Dataset(
+        checkpoint_folders=[f"{DATASET_ROOT}/Code-74k-ShareGPT"],
+        tokenizer=tokenizer,
+        expected_iteration=None,
+        real_length=config["real_length"],
+        texts=[json.load(open(f"{COND_ROOT}/{test_dataset}.json","r",encoding="utf-8"))],
+        num_texts=config["num_texts"],
+        text_tokenizer=config["text_tokenizer"],
+        max_text_length=config["max_text_length"],
+    )  # test_set
+    test_loader = DataLoader(
+        dataset=test_set,
+        batch_size=1,
+        num_workers=0,
+        collate_fn=test_set.collate_fn_test,
+        shuffle=False,
+    )  # test dataloader
 
-    # print(f"\n\nGenerating parameters for {test_dataset}")
-    # generate(model, test_loader, test_set, eval_dataset, test_dataset)
-    # del model, test_loader
-    # torch.cuda.empty_cache()
-    # gc.collect()
+    print(f"\n\nGenerating parameters for {test_dataset}")
+    generate(model, test_loader, test_set, eval_dataset, test_dataset)
+    del model, test_loader
+    torch.cuda.empty_cache()
+    gc.collect()
 
     process_adapter_path(f"{SAVE_ROOT}/{eval_dataset}T_on_{test_dataset}V")
     print("==> Start testing..")

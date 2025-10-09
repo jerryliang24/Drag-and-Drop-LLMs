@@ -233,7 +233,7 @@ def main(eval_dataset: str, test_dataset: str):
             "--model_name_or_path",
             "./models/Qwen2.5-1.5B-Instruct",
             "--save_name",
-            f"{RES_ROOT}/{test_dataset}/{eval_dataset}T_on_{test_dataset}V_{i}.jsonl",
+            f"{test_dataset}_{eval_dataset}T_on_{test_dataset}V_{i}.jsonl",
             "--adapter_name_or_path",
             f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}",
         ]
@@ -242,7 +242,7 @@ def main(eval_dataset: str, test_dataset: str):
         subprocess.run(
             [
                 "evaluate_functional_correctness",
-                f"{RES_ROOT}/{test_dataset}/{eval_dataset}T_on_{test_dataset}V_{i}.jsonl",
+                f"{test_dataset}_{eval_dataset}T_on_{test_dataset}V_{i}.jsonl",
             ]
         )
 
