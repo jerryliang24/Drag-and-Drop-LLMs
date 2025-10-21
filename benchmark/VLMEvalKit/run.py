@@ -4,6 +4,72 @@ import subprocess
 from functools import partial
 
 
+def timestr(granularity='second'):
+    s = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    assert granularity in ['second', 'minute', 'hour', 'day']
+    if granularity == 'second':
+        return s
+    elif granularity == 'minute':
+        return s[:-2]
+    elif granularity == 'hour':
+        return s[:-4]
+    elif granularity == 'day':
+        return s[:-6]
+
+def prepare_reuse_files(pred_root_meta, eval_id, model_name, dataset_name, reuse, reuse_aux):
+    import shutil
+    work_dir = osp.join(pred_root_meta, eval_id)
+    os.makedirs(work_dir, exist_ok=True)
+    if not reuse:
+        files = ls(work_dir, match=f'{model_name}_{dataset_name}')
+        if len(files):
+            t_str = timestr('second')
+            bak_dir = osp.join(work_dir, f'bak_{t_str}_{dataset_name}')
+            os.makedirs(bak_dir, exist_ok=True)
+            for f in files:
+                shutil.move(f, bak_dir)
+            warnings.warn(
+                f'--reuse flag not set but history records detected in {work_dir}. '
+                f'Those files are moved to {bak_dir} for backup. '
+            )
+            return
+    # reuse flag is set
+    prev_pred_roots = ls(pred_root_meta, mode='dir')
+    prev_pred_roots.sort()
+    prev_pred_roots.remove(work_dir)
+
+    files = ls(work_dir, match=f'{model_name}_{dataset_name}.')
+    prev_file = None
+    prev_aux_files = None
+    if len(files):
+        pass
+    else:
+        for root in prev_pred_roots[::-1]:
+            fs = ls(root, match=f'{model_name}_{dataset_name}.')
+            if len(fs):
+                if len(fs) > 1:
+                    warnings.warn(f'Multiple candidates in {root}: {fs}. Will use {fs[0]}')
+                prev_file = fs[0]
+                prev_aux_files = fetch_aux_files(prev_file)
+                break
+        if prev_file is not None:
+            warnings.warn(f'--reuse is set, will reuse prediction file {prev_file}')
+            os.system(f'cp {prev_file} {work_dir}')
+
+    if not reuse_aux:
+        warnings.warn(f'--reuse-aux is not set, all auxiliary files in {work_dir} are removed. ')
+        os.system(f'rm -rf {osp.join(work_dir, f"{model_name}_{dataset_name}_*openai*")}')
+        os.system(f'rm -rf {osp.join(work_dir, f"{model_name}_{dataset_name}_*csv")}')
+        os.system(f'rm -rf {osp.join(work_dir, f"{model_name}_{dataset_name}_*json")}')
+        os.system(f'rm -rf {osp.join(work_dir, f"{model_name}_{dataset_name}_*pkl")}')
+        os.system(f'rm -rf {osp.join(work_dir, f"{model_name}_{dataset_name}_*gpt*")}')
+    elif prev_aux_files is not None:
+        for f in prev_aux_files:
+            os.system(f'cp {f} {work_dir}')
+            warnings.warn(f'--reuse-aux is set, will reuse auxiliary file {f}')
+    return
+
+
 # GET the number of GPUs on the node without importing libs like torch
 def get_gpu_list():
     CUDA_VISIBLE_DEVICES = os.environ.get("CUDA_VISIBLE_DEVICES", "")
@@ -50,7 +116,7 @@ from vlmeval.utils.result_transfer import MMMU_result_transfer, MMTBench_result_
 
 
 # Make WORLD_SIZE invisible when build models
-def build_model_from_config(cfg, model_name, use_vllm=False):
+def build_model_from_config(cfg, model_name, use_vllm=True):
     import vlmeval.api
     import vlmeval.vlm
 

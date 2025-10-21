@@ -245,14 +245,13 @@ def main(eval_dataset: str, test_dataset: str):
                 "codegeneration",
                 "--local_model_path",
                 f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
+                "--release_version", "release_v1", "--evaluate"
             ]
         )
 
-        import shutil
 
-        shutil.rmtree(
-            f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
-        )
+        shutil.rmtree(f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged")
+        shutil.rmtree(f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}")
 
 
 if __name__ == "__main__":

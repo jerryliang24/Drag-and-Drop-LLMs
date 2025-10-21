@@ -75,11 +75,11 @@ This section covers the entire process from preparing the checkpoint dataset to 
 1. Download foundation models and sentenceBERT in the ./model folder.
 
 ```shell
-huggingface-cli download <model_name> --local-dir models/<model_name>
+hf download <model_name> --local-dir models/<model_name>
 # The models you may need for DnD: Qwen/Qwen2.5-0.5/1.5/7B-Instruct, Qwen/Qwen2.5-VL-3B-Instruct, sentence-transformers/all-MiniLM-L12-v2, google-t5/t5-base
 ```
 
-3. Preparing the checkpoint is laborious, so we recommend using our released LoRA adapters for training.
+3. Preparing the checkpoint is laborious, so we recommend using our released LoRA adapters for training (Note that you need to first visit the website and agree the terms of our liscence).
 
 ```shell
 python download_data.py --lora_type <lora_type>

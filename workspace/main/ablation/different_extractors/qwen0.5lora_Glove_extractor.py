@@ -1,4 +1,4 @@
-import os
+DnDimport os
 
 SEED = 999
 import json
@@ -76,7 +76,7 @@ config: dict[str, [float, int, str, dict]] = {
         [f"{CONFIG_ROOT}/{dataset}/criterion_weight.pt" for dataset in datasets]
     ),
     "extractor_type": "Glove",
-    "text_tokenizer": Glove_Tokenizer(embedding="42B", path="../models", dim=300),
+    "text_tokenizer": Glove_Tokenizer(embedding="42B", path="models", dim=300),
     "extra_condition_module": torch.nn.Identity(),
     "max_text_length": 200,
     "model_config": {
@@ -196,7 +196,7 @@ config["tag"] = config["model_tag"] + "__" + config["dataset_tag"]
 if __name__ == "__main__" and USE_WANDB and accelerator.is_main_process:
     wandb.login(key=workspace_config["wandb_api_key"])
     wandb.init(
-        project="QwenGen",
+        project="DnD",
         name=config["tag"],
         config=config,
     )

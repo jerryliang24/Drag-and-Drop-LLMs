@@ -59,11 +59,11 @@ config: dict[str, [float, int, str, dict]] = {
     "generated_file": f"{CONFIG_ROOT}/{dataset_tag}/",
     # train setting
     "max_num_gpus": 8,
-    "batch_size": 64,
+    "batch_size": 32,
     "num_workers": 4,
     "prefetch_factor": 1,
     "warmup_steps": 1,
-    "total_steps": 5000,
+    "total_steps": 5005,
     "learning_rate": 3e-5,
     "weight_decay": 0.1,
     "max_grad_norm": 1.0,

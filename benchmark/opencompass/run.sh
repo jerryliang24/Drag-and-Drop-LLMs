@@ -1,4 +1,4 @@
-LORA_PATH="/mnt/petrelfs/xuzhaopan/zxl/Drag-and-Drop-LLMs/benchmark/opemcompass/3001.safetensors"
+LORA_PATH=""
 MODEL_PATH="Qwen/Qwen2.5-7B-Instruct"
 OUT_PATH="merged_ckpt"
 

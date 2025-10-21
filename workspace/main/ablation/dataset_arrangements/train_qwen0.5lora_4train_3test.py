@@ -1,4 +1,4 @@
-import os
+DnDimport os
 
 SEED = 999
 import json
@@ -219,7 +219,7 @@ config["tag"] = config["model_tag"] + "__" + config["dataset_tag"]
 if __name__ == "__main__" and USE_WANDB and accelerator.is_main_process:
     wandb.login(key=workspace_config["wandb_api_key"])
     wandb.init(
-        project="QwenGen",
+        project="DnD",
         name=config["tag"],
         config=config,
     )

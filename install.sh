@@ -1,5 +1,9 @@
 pip install -r requirements.txt
 
+git clone https://github.com/open-compass/VLMEvalKit.git
+pip install ./VLMEvalKit
+rm -rf ./VLMEvalKit
+
 # change pandas version restriction in opencompass
 git clone -b 0.4.2 https://github.com/open-compass/opencompass.git
 sed -i.bak "s/pandas<2.0.0/pandas/" ./opencompass/requirements/runtime.txt

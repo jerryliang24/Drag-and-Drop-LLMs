@@ -1,5 +1,5 @@
 ---
-base_model: /fs-computility/ai4sData/zhouyuhao.p/archive/models/Qwen2.5VL-3B-Instruct
+base_model: ./models/Qwen2.5VL-3B-Instruct
 library_name: peft
 ---
 

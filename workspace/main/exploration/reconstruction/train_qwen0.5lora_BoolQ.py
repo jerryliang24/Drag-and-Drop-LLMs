@@ -27,7 +27,6 @@ from torch.utils.data import DataLoader
 from transformers import AutoModel, AutoTokenizer
 
 accelerate.utils.set_seed(SEED)
-dataset_tag = "ARC-c"
 DATASET_ROOT = "./data/common_sense_reasoning"
 CONFIG_ROOT = f"./workspace/datasets/common_sense_reasoning"
 COND_ROOT = "./prepare/data"
@@ -197,7 +196,7 @@ config["tag"] = config["model_tag"] + "__" + config["dataset_tag"]
 if __name__ == "__main__" and USE_WANDB and accelerator.is_main_process:
     wandb.login(key=workspace_config["wandb_api_key"])
     wandb.init(
-        project="QwenGen",
+        project="DnD",
         name=config["tag"],
         config=config,
     )
@@ -254,8 +253,6 @@ def train():
                     del state[key]
                 # noinspection PyTypeChecker
                 accelerator.save(state, os.path.join(config["save_folder"], config["tag"] + ".pth"))
-                if batch_idx % 200 == 0:
-                    accelerator.save(state, os.path.join(config["save_folder"], config["tag"] + f"{batch_idx}.pth"))
                 if accelerator.is_main_process:
                     print("\nEvaluating on eval set:")
                 generate(iterator=eval_iterator, idx=batch_idx // config["save_every"])

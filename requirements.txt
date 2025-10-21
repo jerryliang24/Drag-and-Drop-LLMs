@@ -19,5 +19,3 @@ vllm==0.7.2
 https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
 https://github.com/hiyouga/LLaMA-Factory/releases/download/v0.9.2/llamafactory-0.9.2-py3-none-any.whl
 
-
-git+https://github.com/open-compass/VLMEvalKit.git@v0.2

@@ -238,7 +238,7 @@ def main(eval_dataset: str, test_dataset: str):
 
         subprocess.run(["python", "scripts/vllm_infer.py"] + args)
         subprocess.run(
-            ["python", "calculate_acc.py"]
+            ["python", "scripts/calculate_acc.py"]
             + ["--file", f"{RES_ROOT}/{test_dataset}/{eval_dataset}T_on_{test_dataset}V_{i}.jsonl"]
         )
 

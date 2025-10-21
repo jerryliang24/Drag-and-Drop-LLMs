@@ -7,6 +7,4 @@ export CUDA_VISIBLE_DEVICES=0,1
 python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset OBQA1000 --test_dataset OBQA
 python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset OBQA2000 --test_dataset OBQA
 python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset OBQA3000 --test_dataset OBQA
-python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset OBQA4000 --test_dataset OBQA
-python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset OBQA5000 --test_dataset OBQA
 python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset OBQA --test_dataset OBQA

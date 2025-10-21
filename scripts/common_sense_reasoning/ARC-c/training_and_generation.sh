@@ -7,4 +7,4 @@ export CUDA_VISIBLE_DEVICES=0,1
 python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset ARC-c1000 --test_dataset ARC-c
 python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset ARC-c2000 --test_dataset ARC-c
 python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset ARC-c3000 --test_dataset ARC-c
-python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset ARC-c4000 --test_dataset ARC-c
+python generate/qwen0.5lora_generation_common_sense_reasoning.py --eval_dataset ARC-c --test_dataset ARC-c

@@ -18,7 +18,7 @@ def download_data(lora_types: List[str]):
         print(f"\n🚀 Downloading data for lora_type: {lora_type}")
         subprocess.run(
             [
-                "huggingface-cli",
+                "hf",
                 "download",
                 f"Jerrylz/{lora_type}",
                 "--repo-type",

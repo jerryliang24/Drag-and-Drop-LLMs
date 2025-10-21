@@ -9,13 +9,9 @@
         }
     },
     "data": {
-        "MathVista": {
-            "class": "MathVista",
-            "dataset": "MathVista_MINI"
-        },
-        "MathVision": {
+        "MathVision_MINI": {
             "class": "MathVision",
-            "dataset": "MathVision"
+            "dataset": "MathVision_MINI"
         }
     }
 }

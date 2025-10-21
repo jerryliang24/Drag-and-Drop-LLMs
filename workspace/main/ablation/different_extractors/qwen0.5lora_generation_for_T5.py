@@ -8,7 +8,7 @@ root = os.sep + os.sep.join(__file__.split(os.sep)[1 : __file__.split(os.sep).in
 sys.path.append(root)
 os.chdir(root)
 os.environ["NUM_PROCESSES"] = "1"
-model_type = os.path.basename(__file__).split("_")[0]
+model_type = "qwen0.5lora_T5_extractor"
 
 import gc
 import shutil
@@ -27,7 +27,7 @@ DATASET_ROOT = "./data/common_sense_reasoning"
 CONFIG_ROOT = "./workspace/datasets/common_sense_reasoning"
 COND_ROOT = "./prepare/data"
 SAVE_ROOT = "./generated/common_sense_reasoning"
-extractor = "./models/t5_base"
+extractor = "./models/t5-base"
 TEST_ROOT = "../test_ckpts"
 CONFIG_PATH = "./configs/Qwen0.5"
 RES_ROOT = "../results/ablations/extractor_type"
@@ -47,7 +47,7 @@ config: dict[str, [float, int, str, dict]] = {
     "need_test": False,
     # data setting
     "token_size": (10, 130),
-    "real_length": 50,
+    "real_length": 10,
     "num_texts": 64,
     "criterion_weight": torch.load(
         f"{CONFIG_ROOT}/{dataset_tag}/criterion_weight.pt", map_location="cpu", weights_only=True
@@ -72,12 +72,7 @@ config: dict[str, [float, int, str, dict]] = {
         "kernel_size": 9,
     },
 }
-model = Model(
-    config=config["model_config"],
-    criterion_weight=config["criterion_weight"].view(1, -1, 1, 1),
-    extractor_type=config["extractor_type"],
-    extra_condition_module=config["extra_condition_module"],
-)
+
 tokenizer = Tokenizer(token_size=config["token_size"])
 
 
@@ -192,6 +187,13 @@ def generate(model, loader, dataset, dstag_T, dstag_V):
 def main(eval_dataset: str, test_dataset: str):
     # Model
     print("==> Building model..")
+
+    model = Model(
+    config=config["model_config"],
+    criterion_weight=config["criterion_weight"].view(1, -1, 1, 1),
+    extractor_type=config["extractor_type"],
+    extra_condition_module=config["extra_condition_module"],)
+
     diction = torch.load(f"./checkpoints/{model_type}__{eval_dataset}.pth", weights_only=True, map_location="cpu")
     model.load_state_dict(diction, strict=False)
     model.to(config["device"])
@@ -216,7 +218,7 @@ def main(eval_dataset: str, test_dataset: str):
     )  # test dataloader
 
     print(f"\n\nGenerating parameters for {test_dataset}")
-    generate(test_loader, test_set, eval_dataset, test_dataset)
+    generate(model, test_loader, test_set, eval_dataset, test_dataset)
     del model, test_loader
     torch.cuda.empty_cache()
     gc.collect()
@@ -226,8 +228,7 @@ def main(eval_dataset: str, test_dataset: str):
     os.chdir("./prepare")
 
     for i in range(config["real_length"]):
-        if i != 5:
-            continue
+        
         args = [
             "--model_name_or_path",
             "../models/Qwen2.5-0.5B-Instruct",
@@ -240,7 +241,7 @@ def main(eval_dataset: str, test_dataset: str):
         ]
         subprocess.run(["python", "scripts/vllm_infer.py"] + args)
         subprocess.run(
-            ["python", "calculate_acc.py"]
+            ["python", "scripts/calculate_acc.py"]
             + ["--file", f"{RES_ROOT}/{test_dataset}/{eval_dataset}T_on_{test_dataset}V_{i}.jsonl"]
         )
 

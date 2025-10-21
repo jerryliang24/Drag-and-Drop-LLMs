@@ -1,17 +1,15 @@
 import json
 import os
-import subprocess
 import sys
 
-file_path = os.path.abspath(sys.argv[1])
 root = os.sep + os.sep.join(__file__.split(os.sep)[1 : __file__.split(os.sep).index("Drag-and-Drop-LLMs") + 1])
 sys.path.append(root)
 os.chdir(root)
-os.environ["NUM_PROCESSES"] = "1"
 model_type = os.path.basename(__file__).split("_")[0]
 
 import gc
 import shutil
+import subprocess
 
 import torch
 from fire import Fire
@@ -19,18 +17,18 @@ from torch.utils.data import DataLoader
 from transformers import AutoModel, AutoTokenizer
 
 from workspace.dnd.dataset import Text2Qwen25LoRA_FullCondDataset as Dataset
-from workspace.dnd.model import HyperConvDecoderModel_FullCond as Model
-from workspace.dnd.tokenizer import Qwen2505LoRA_Tokenizer2D as Tokenizer
+from workspace.dnd.model import HyperConvDecoderModel_SuperLarge as Model
+from workspace.dnd.tokenizer import Qwen2515LoRA_Tokenizer2D as Tokenizer
 
 SEED = 999
-DATASET_ROOT = "./data/common_sense_reasoning"
-CONFIG_ROOT = "./workspace/datasets/common_sense_reasoning"
+DATASET_ROOT = "./data/math1.5B"
+CONFIG_ROOT = "./workspace/datasets/math1.5B"
 COND_ROOT = "./prepare/data"
-SAVE_ROOT = "./generated/common_sense_reasoning"
+SAVE_ROOT = "./generated/math1.5B"
 extractor = "./models/all-MiniLM-L12-v2"
-TEST_ROOT = "../test_ckpts"
-CONFIG_PATH = "./configs/Qwen0.5"
-RES_ROOT = "../results/common_sense_reasoning"
+TEST_ROOT = "./test_ckpts"
+CONFIG_PATH = "./configs/Qwen1.5"
+RES_ROOT = "./results/math1.5B"
 
 import torch
 
@@ -39,36 +37,37 @@ import accelerate.utils
 from torch.utils.data import DataLoader
 
 accelerate.utils.set_seed(SEED)
-max_text_length = 384
-dataset_tag = "BoolQ"
+max_text_length = 4608
+modified_length = 1000
+num_texts = 32
+dataset_tag = "Competition_Math"
 config: dict[str, [float, int, str, dict]] = {
     # global setting
     "need_test": False,
     # data setting
-    "token_size": (10, 130),
+    "token_size": (18, 258),
     "real_length": 10,
-    "num_texts": 128,
+    "num_texts": num_texts,
     "criterion_weight": torch.load(
         f"{CONFIG_ROOT}/{dataset_tag}/criterion_weight.pt", map_location="cpu", weights_only=True
     ),
     "extractor_type": "BERT",
     "text_tokenizer": AutoTokenizer.from_pretrained(extractor),
     "extra_condition_module": AutoModel.from_pretrained(extractor, torch_dtype="auto"),
-    "max_text_length": 384,
+    "max_text_length": max_text_length,
+    "modified_length": modified_length,
     "model_config": {
         "features": [
-            (128, max_text_length, 384),
-            (128, 200, 300),
-            (128, 100, 256),
-            (256, 50, 200),
-            (512, 50, 200),
-            (1024, 25, 200),
-            (1024, 10, 200),
-            (2048, 10, 200),
-            (4296, 10, 130),
+            (num_texts, modified_length, 384),
+            (64, 500, 300),
+            (256, 500, 300),
+            (512, 125, 300),
+            (1024, 64, 256),
+            (2048, 32, 256),
+            (4508, 18, 258),
         ],
-        "condition_dim": (128, max_text_length, 384),
-        "kernel_size": 9,
+        "condition_dim": (num_texts, modified_length, 384),
+        "kernel_size": 11,
     },
 }
 
@@ -81,6 +80,44 @@ generate_config = {
 config.update(generate_config)
 
 
+def find_safetensors_files(directory):
+    safetensors_files = []
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            if file.endswith(".safetensors"):
+                safetensors_files.append(os.path.join(root, file))
+    return safetensors_files
+
+
+def copy_files(src_dir, dest_dir):
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
+
+    for root, dirs, files in os.walk(src_dir):
+        for file in files:
+            src_file_path = os.path.join(root, file)
+            relative_path = os.path.relpath(root, src_dir)
+            dest_folder_path = os.path.join(dest_dir, relative_path)
+            if not os.path.exists(dest_folder_path):
+                os.makedirs(dest_folder_path)
+            dest_file_path = os.path.join(dest_folder_path, file)
+            shutil.copy2(src_file_path, dest_file_path)
+            # print(f"files transferred to {dest_file_path} complete")
+
+
+def process_adapter_path(adapter_dir):
+    ckpts = find_safetensors_files(adapter_dir)
+    for ckpt in ckpts:
+        dir_name = adapter_dir.split("/")[-1] + "_" + os.path.basename(ckpt).split(".")[0]
+        save_dir = os.path.join("./test_ckpts", dir_name)
+        if not os.path.exists(save_dir):
+            os.makedirs(save_dir)
+            copy_files(CONFIG_PATH, save_dir)
+            shutil.copy2(ckpt, save_dir)
+            new_ada = os.path.join(save_dir, os.path.basename(ckpt))
+            os.rename(new_ada, os.path.join(save_dir, "adapter_model.safetensors"))
+
+
 # generate
 print("==> Defining generate..")
 
@@ -91,6 +128,8 @@ def generate(model, loader, dataset, dstag_T, dstag_V):
     # prepare data
     for idx, (tokens, cond_id, cond_mask, tag) in enumerate(loader):
         # generate
+        if idx >= config["num_generated"]:
+            break
         with torch.no_grad() and torch.autocast("cuda", dtype=torch.bfloat16):
             mask = ~torch.isnan(tokens)
             tokens = torch.nan_to_num_(tokens, nan=0.0)
@@ -136,74 +175,38 @@ def generate(model, loader, dataset, dstag_T, dstag_V):
         print("original_end:", tokens[0, -1, 0, 0:5].tolist())
         print("generated_l2norm:", generated_norm)
         print("original_l2norm:", original_norm)
-        torch.cuda.empty_cache()
         # noinspection PyTypeChecker save checkpoint
         save_path = dataset.save_checkpoint(
-            save_path=f"{SAVE_ROOT}/{dstag_T}T_on_{dstag_V}V", tokens=predict[0], tag=tag, number=idx
+            save_path=f"{SAVE_ROOT}/{dstag_T}T_on_{dstag_V}V/", tokens=predict[0], tag=tag, number=idx
         )  # save files
-
-
-def find_safetensors_files(directory):
-    safetensors_files = []
-    for root, dirs, files in os.walk(directory):
-        for file in files:
-            if file.endswith(".safetensors"):
-                safetensors_files.append(os.path.join(root, file))
-    return safetensors_files
-
-
-def copy_files(src_dir, dest_dir):
-    if not os.path.exists(dest_dir):
-        os.makedirs(dest_dir)
-
-    for root, dirs, files in os.walk(src_dir):
-        for file in files:
-            src_file_path = os.path.join(root, file)
-            relative_path = os.path.relpath(root, src_dir)
-            dest_folder_path = os.path.join(dest_dir, relative_path)
-            if not os.path.exists(dest_folder_path):
-                os.makedirs(dest_folder_path)
-            dest_file_path = os.path.join(dest_folder_path, file)
-            shutil.copy2(src_file_path, dest_file_path)
-            # print(f"files transferred to {dest_file_path} complete")
-
-
-def process_adapter_path(adapter_dir):
-    ckpts = find_safetensors_files(adapter_dir)
-    for ckpt in ckpts:
-        dir_name = adapter_dir.split("/")[-1] + "_" + os.path.basename(ckpt).split(".")[0]
-        save_dir = os.path.join("./test_ckpts", dir_name)
-        if not os.path.exists(save_dir):
-            os.makedirs(save_dir)
-            copy_files(CONFIG_PATH, save_dir)
-            shutil.copy2(ckpt, save_dir)
-            new_ada = os.path.join(save_dir, os.path.basename(ckpt))
-            os.rename(new_ada, os.path.join(save_dir, "adapter_model.safetensors"))
+        if config["need_test"]:
+            os.system(config["test_command"].format(save_path))
 
 
 def main(eval_dataset: str, test_dataset: str):
     # Model
     print("==> Building model..")
-    diction = torch.load(f"./checkpoints/{model_type}__{eval_dataset}.pth", weights_only=True, map_location="cpu")
-
     model = Model(
         config=config["model_config"],
         criterion_weight=config["criterion_weight"].view(1, -1, 1, 1),
+        max_length=config["max_text_length"],
+        modified_length=config["modified_length"],
         extractor_type=config["extractor_type"],
         extra_condition_module=config["extra_condition_module"],
     )
-    tokenizer = Tokenizer(token_size=config["token_size"])
 
+    tokenizer = Tokenizer(token_size=config["token_size"])
+    diction = torch.load(f"./checkpoints/{model_type}__{eval_dataset}.pth", weights_only=True, map_location="cpu")
     model.load_state_dict(diction, strict=False)
     model.to(config["device"])
 
     # load module
     test_set = Dataset(
-        checkpoint_folders=[f"{DATASET_ROOT}/ARC-e"],
+        checkpoint_folders=[f"{DATASET_ROOT}/Math-Plus"],
         tokenizer=tokenizer,
         expected_iteration=None,
         real_length=config["real_length"],
-        texts=[json.load(open(f"{COND_ROOT}/{test_dataset}_test.json", "r", encoding="utf-8"))],
+        texts=[json.load(open(f"{COND_ROOT}/{test_dataset}.json", "r", encoding="utf-8"))],
         num_texts=config["num_texts"],
         text_tokenizer=config["text_tokenizer"],
         max_text_length=config["max_text_length"],
@@ -224,26 +227,32 @@ def main(eval_dataset: str, test_dataset: str):
 
     process_adapter_path(f"{SAVE_ROOT}/{eval_dataset}T_on_{test_dataset}V")
     print("==> Start testing..")
-    os.chdir("./prepare")
 
     for i in range(config["real_length"]):
-        if i != 5:
-            continue
+        
         args = [
-            "--model_name_or_path",
-            "../models/Qwen2.5-0.5B-Instruct",
-            "--save_name",
-            f"{RES_ROOT}/{test_dataset}/{eval_dataset}T_on_{test_dataset}V_{i}.jsonl",
-            "--dataset",
-            f"{test_dataset}_test",
-            "--adapter_name_or_path",
+            "--base_model_name",
+            "./models/Qwen2.5-1.5B-Instruct",
+            "--output_dir",
+            f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
+            "--lora_model_path",
             f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}",
         ]
-        subprocess.run(["python", "scripts/vllm_infer.py"] + args)
+
+        subprocess.run(["python", "./benchmark/merge_lora.py"] + args)
         subprocess.run(
-            ["python", "calculate_acc.py"]
-            + ["--file", f"{RES_ROOT}/{test_dataset}/{eval_dataset}T_on_{test_dataset}V_{i}.jsonl"]
+            [
+                "opencompass", "--datasets", "gsm8k_gen_1d7fe4",
+                "--hf-type", "chat",
+                "--hf-path", f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
+                "--accelerator", "vllm",
+                "--max-num-workers", "8"
+            ]
         )
+
+        import shutil
+        shutil.rmtree(f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged")
+        shutil.rmtree(f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}")
 
 
 if __name__ == "__main__":

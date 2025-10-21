@@ -15,3 +15,5 @@ python ablation/condition_forms/qwen0.5lora_generation_cond_Mix.py --eval_datase
 python ablation/condition_forms/qwen1.5Math_generation_cond_A.py --eval_dataset Cond_A1000 --test_dataset GSM8K
 python ablation/condition_forms/qwen1.5Math_generation_cond_A.py --eval_dataset Cond_A2000 --test_dataset GSM8K
 python ablation/condition_forms/qwen1.5Math_generation_cond_A.py --eval_dataset Cond_A3000 --test_dataset GSM8K
+python ablation/condition_forms/qwen1.5Math_generation_cond_A.py --eval_dataset Cond_A4000 --test_dataset GSM8K
+python ablation/condition_forms/qwen1.5Math_generation_cond_A.py --eval_dataset Cond_A5000 --test_dataset GSM8K

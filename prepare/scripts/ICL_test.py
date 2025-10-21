@@ -64,7 +64,7 @@ def vllm_infer(
 
     training_data = json.load(
         open(
-            "/fs-computility/ai4sData/zhouyuhao.p/archive/qwengen/OCR_prepare/data/ARC-c_train.json",
+            "/prepare/data/ARC-c_train.json",
             "r",
             encoding="utf-8",
         )
@@ -75,7 +75,7 @@ def vllm_infer(
 
     data = json.load(
         open(
-            "/fs-computility/ai4sData/zhouyuhao.p/archive/qwengen/OCR_prepare/data/ARC-c_test.json",
+            "/prepare/data/ARC-c_test.json",
             "r",
             encoding="utf-8",
         )

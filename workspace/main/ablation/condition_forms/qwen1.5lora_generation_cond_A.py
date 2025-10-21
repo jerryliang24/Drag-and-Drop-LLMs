@@ -8,6 +8,10 @@ os.chdir(root)
 os.environ["NUM_PROCESSES"] = "1"
 model_type = os.path.basename(__file__).split("_")[0]
 
+import gc
+import shutil
+import subprocess
+
 import torch
 from fire import Fire
 from torch.utils.data import DataLoader
@@ -23,6 +27,9 @@ CONFIG_ROOT = "./workspace/datasets/math1.5B"
 COND_ROOT = "./prepare/data"
 SAVE_ROOT = "./generated/math1.5B"
 extractor = "./models/all-MiniLM-L12-v2"
+TEST_ROOT = "./test_ckpts"
+CONFIG_PATH = "./configs/Qwen1.5"
+RES_ROOT = "./results/math1.5B"
 
 import torch
 
@@ -33,14 +40,14 @@ from torch.utils.data import DataLoader
 accelerate.utils.set_seed(SEED)
 max_text_length = 6144
 modified_length = 1000
-num_texts = 32
+num_texts = 16
 dataset_tag = "Competition_Math"
 config: dict[str, [float, int, str, dict]] = {
     # global setting
     "need_test": False,
     # data setting
     "token_size": (18, 258),
-    "real_length": 10,
+    "real_length": 5,
     "num_texts": num_texts,
     "criterion_weight": torch.load(
         f"{CONFIG_ROOT}/{dataset_tag}/criterion_weight.pt", map_location="cpu", weights_only=True
@@ -64,14 +71,7 @@ config: dict[str, [float, int, str, dict]] = {
         "kernel_size": 11,
     },
 }
-model = Model(
-    config=config["model_config"],
-    criterion_weight=config["criterion_weight"].view(1, -1, 1, 1),
-    max_length=config["max_text_length"],
-    modified_length=config["modified_length"],
-    extractor_type=config["extractor_type"],
-    extra_condition_module=config["extra_condition_module"],
-)
+
 tokenizer = Tokenizer(token_size=config["token_size"])
 
 
@@ -82,6 +82,43 @@ generate_config = {
 }
 config.update(generate_config)
 
+
+def find_safetensors_files(directory):
+    safetensors_files = []
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            if file.endswith(".safetensors"):
+                safetensors_files.append(os.path.join(root, file))
+    return safetensors_files
+
+
+def copy_files(src_dir, dest_dir):
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
+
+    for root, dirs, files in os.walk(src_dir):
+        for file in files:
+            src_file_path = os.path.join(root, file)
+            relative_path = os.path.relpath(root, src_dir)
+            dest_folder_path = os.path.join(dest_dir, relative_path)
+            if not os.path.exists(dest_folder_path):
+                os.makedirs(dest_folder_path)
+            dest_file_path = os.path.join(dest_folder_path, file)
+            shutil.copy2(src_file_path, dest_file_path)
+            # print(f"files transferred to {dest_file_path} complete")
+
+
+def process_adapter_path(adapter_dir):
+    ckpts = find_safetensors_files(adapter_dir)
+    for ckpt in ckpts:
+        dir_name = adapter_dir.split("/")[-1] + "_" + os.path.basename(ckpt).split(".")[0]
+        save_dir = os.path.join("./test_ckpts", dir_name)
+        if not os.path.exists(save_dir):
+            os.makedirs(save_dir)
+            copy_files(CONFIG_PATH, save_dir)
+            shutil.copy2(ckpt, save_dir)
+            new_ada = os.path.join(save_dir, os.path.basename(ckpt))
+            os.rename(new_ada, os.path.join(save_dir, "adapter_model.safetensors"))
 
 # generate
 print("==> Defining generate..")
@@ -124,7 +161,7 @@ def generate(model, loader, dataset, dstag_T, dstag_V):
                 generate=True,
             )  # generate
 
-            stop_timer.set()  # 告诉计时线程停止
+            stop_timer.set() 
             timer_thread.join()
             print()
 
@@ -148,6 +185,15 @@ def generate(model, loader, dataset, dstag_T, dstag_V):
 def main(eval_dataset: str, test_dataset: str):
     # Model
     print("==> Building model..")
+
+    model = Model(
+    config=config["model_config"],
+    criterion_weight=config["criterion_weight"].view(1, -1, 1, 1),
+    max_length=config["max_text_length"],
+    modified_length=config["modified_length"],
+    extractor_type=config["extractor_type"],
+    extra_condition_module=config["extra_condition_module"],)
+
     diction = torch.load(f"./checkpoints/{model_type}__{eval_dataset}.pth", weights_only=True, map_location="cpu")
     model.load_state_dict(diction, strict=False)
     model.to(config["device"])
@@ -173,6 +219,38 @@ def main(eval_dataset: str, test_dataset: str):
 
     print(f"\n\nGenerating parameters for {test_dataset}")
     generate(test_loader, test_set, eval_dataset, test_dataset)
+    del model, test_loader
+    torch.cuda.empty_cache()
+    gc.collect()
+
+    process_adapter_path(f"{SAVE_ROOT}/{eval_dataset}T_on_{test_dataset}V")
+    print("==> Start testing..")
+
+    for i in range(config["real_length"]):
+        
+        args = [
+            "--base_model_name",
+            "./models/Qwen2.5-1.5B-Instruct",
+            "--output_dir",
+            f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
+            "--lora_model_path",
+            f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}",
+        ]
+
+        subprocess.run(["python", "./benchmark/merge_lora.py"] + args)
+        subprocess.run(
+            [
+                "opencompass", "--datasets", "gsm8k_gen_1d7fe4",
+                "--hf-type", "chat",
+                "--hf-path", f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
+                "--accelerator", "vllm",
+                "--max-num-workers", "4"
+            ]
+        )
+
+        import shutil
+        shutil.rmtree(f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged")
+        shutil.rmtree(f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}")
 
 
 if __name__ == "__main__":

@@ -70,7 +70,6 @@ config: dict[str, [float, int, str, dict]] = {
     "max_grad_norm": 1.0,
     "save_every": 100,
     "print_every": 20,
-    "condition_paths": [f"{CONFIG_ROOT}/{dataset}/fuse_features_middle_layer.pt" for dataset in datasets],
     "num_texts": 128,
     "save_folder": "./checkpoints",
     "noise_enhance": 0.0001,
@@ -202,7 +201,7 @@ config["tag"] = config["model_tag"] + "__" + config["dataset_tag"]
 if __name__ == "__main__" and USE_WANDB and accelerator.is_main_process:
     wandb.login(key=workspace_config["wandb_api_key"])
     wandb.init(
-        project="QwenGen",
+        project="DnD",
         name=config["tag"],
         config=config,
     )
@@ -259,8 +258,7 @@ def train():
                     del state[key]
                 # noinspection PyTypeChecker
                 accelerator.save(state, os.path.join(config["save_folder"], config["tag"] + ".pth"))
-                if batch_idx % 1000 == 0:
-                    accelerator.save(state, os.path.join(config["save_folder"], config["tag"] + f"{batch_idx}.pth"))
+
                 if accelerator.is_main_process:
                     print("\nEvaluating on eval set:")
                 generate(iterator=eval_iterator, idx=batch_idx // config["save_every"])
