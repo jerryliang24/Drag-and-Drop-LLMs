@@ -46,7 +46,7 @@ config: dict[str, [float, int, str, dict]] = {
     "need_test": False,
     # data setting
     "token_size": (10, 130),
-    "real_length": 50,
+    "real_length": 10,
     "num_texts": 128,
     "criterion_weight": torch.load(
         f"{CONFIG_ROOT}/{dataset_tag}/criterion_weight.pt", map_location="cpu", weights_only=True

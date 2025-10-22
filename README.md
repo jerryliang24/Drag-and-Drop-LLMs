@@ -5,7 +5,7 @@
 <div align="center">
 <a href='https://jerryliang24.github.io/DnD/' style="text-decoration: none;"><img src='https://img.shields.io/badge/DnD-Projectpage-orange?style=flat&logo=googlehome&logoColor=%23FFFFFF'></a>
 <a href='https://arxiv.org/pdf/2506.16406'><img src='https://img.shields.io/badge/arXiv-2506.16406-%23B31B1B?logo=arxiv'></a>
-<a href='https://huggingface.co/spaces/Jerrylz/Drag-and-Drop-LLMs'><img src='https://img.shields.io/badge/Hugging%20Face-Demo-blue?style=flat&logo=huggingface&logoColor=%23FFD21E'></a>
+<a href='https://huggingface.co/datasets/Jerrylz/DnD-checkpoints-and-logs'><img src='https://img.shields.io/badge/Hugging%20Face-Models-blue?style=flat&logo=huggingface&logoColor=%23FFD21E'></a>
 <a href='https://huggingface.co/datasets/Jerrylz'><img src='https://img.shields.io/badge/Hugging%20Face-Datasets-blue?style=flat&logo=huggingface&logoColor=%23FFD21E'></a>
 <a href='LICENSE'><img src='https://img.shields.io/badge/License-Apache_2.0-green.svg'></a>
 <a href='[LICENSE](https://x.com/_akhaliq/status/1937017302999851124)'><img src='https://img.shields.io/twitter/url?url=https%3A%2F%2Fx.com%2F_akhaliq%2Fstatus%2F1937017302999851124
@@ -13,6 +13,7 @@
 </div>
 
 ## Updates
+* 🚀 **October 23, 2025**: Our **camera ready version** of NeurIPS 2025 is out! Also, we **release all DnD's pretrained checkpoints and logs** [here]()!
 * 🚀 **September 19, 2025**: **DnD** has been accepted by **NeurIPS 2025**!
 
 ## 🧭 Contents
@@ -33,7 +34,7 @@
 https://github.com/user-attachments/assets/ec1ea0d1-3e1c-47b7-8c30-3623866d9369
 
 
-**Explore generating your LLMs for various tasks using our [demo](https://huggingface.co/Jerrylz/Drag-and-Drop-LLMs)!**
+**Explore generating your LLMs for various tasks using our [pretrained checkpoints](https://huggingface.co/datasets/Jerrylz/DnD-checkpoints-and-logs)!**
 
 
 ## 📖 Abstract
@@ -218,7 +219,7 @@ preprocessing_num_workers: 16
   1. You need to observe the loss curve, and decide the starting point of fine-tuning for checkpoint collection.
   2. The trainer_state.json in the checkpoint folder (usually named checkpoint-xxx) needs to be modified, setting "save_steps"=1.
   3. You can follow the scripts in [./prepare/training_scripts](https://github.com/jerryliang24/Drag-and-Drop-LLMs/tree/main/prepare/training_scripts) folder that end with "finetune" to design your fine-tuning process.
-  4. After running the scripts and obtaining multiple checkpoints, you can simply run [./workspace/datasets/process_datasets/post_process_ckpts.py](https://github.com/jerryliang24/Drag-and-Drop-LLMs/blob/main/workspace/datasets/process_datasets/post_process_ckpts.py) to clean your checkpoint folder, deleting config files and rename checkpoints to ease the process of data loading.
+  4. After running the scripts and obtaining multiple checkpoints, you can enter the saving directory, run [./workspace/datasets/process_datasets/post_process_ckpts.sh](https://github.com/jerryliang24/Drag-and-Drop-LLMs/blob/main/workspace/datasets/process_datasets/post_process_ckpts.sh) to clean your checkpoint folder, deleting config files and rename checkpoints to ease the process of data loading.
 
 
 3. Calculate importance scores for the collected checkpoints.
@@ -375,6 +376,7 @@ Jiaxin Wu,
 Zhiheng Chen,
 Lei Feng,
 Jingle Fu,
+Hesen Yang,
 [Bohan Zhuang](https://bohanzhuang.github.io/),
 [Ziheng Qin](https://henryqin1997.github.io/ziheng_qin/),
 [Zangwei Zheng](https://zhengzangw.github.io/),

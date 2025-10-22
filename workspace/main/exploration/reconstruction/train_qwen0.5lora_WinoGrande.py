@@ -56,7 +56,7 @@ config: dict[str, [float, int, str, dict]] = {
     "generated_file": f"./workspace/datasets/{dataset_tag}/generated/",
     # train setting
     "max_num_gpus": 8,
-    "batch_size": 64,
+    "batch_size": 32,
     "num_workers": 8,
     "prefetch_factor": 1,
     "warmup_steps": 1,

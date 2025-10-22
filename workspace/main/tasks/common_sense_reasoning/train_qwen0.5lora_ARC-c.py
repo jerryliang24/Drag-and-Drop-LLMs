@@ -40,7 +40,7 @@ from workspace.dnd.module import WarmupScheduler
 from workspace.dnd.tokenizer import Qwen2505LoRA_Tokenizer2D as Tokenizer
 from workspace.dnd.tools import calculate_mean_criterion_weight, start_monitor
 
-datasets = ["ARC-e", "OBQA", "BoolQ", "WinoGrande", "PIQA", "HellaSwag"]
+datasets = ["ARC-e", "BoolQ",  "PIQA", "HellaSwag"]
 
 
 accelerator = Accelerator()

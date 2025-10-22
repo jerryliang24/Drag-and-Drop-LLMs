@@ -3,7 +3,7 @@ import re
 
 import fire
 
-datasets = ["ARC-c", "ARC-e", "PIQA", "OBQA", "HellaSwag", "WinoGrande", "BoolQ"]
+datasets = ["ARC-c", "ARC-e", "PIQA", "OBQA", "HellaSwag", "WinoGrande", "BoolQ", "science-dataset"]
 numbers = ["1", "2", "3", "4", "["]
 options = ["A", "B", "C", "D"]
 logic = ["True", "False", "false", "true"]
@@ -53,15 +53,23 @@ def match_option_by_keyword_count(response: str, keywords: dict):
     return None
 
 
-def check_validity(file: str):
+def calculate_acc(file: str):
     
     test_dataset = [d for d in datasets if d in file][0]
     test_data = {}
     
-    with open(f"data/{test_dataset}_test.json", 'r') as f:
-        test_data_list = json.load(f)
-        for i, item in enumerate(test_data_list):
-            test_data[i] = item
+    if test_dataset == "science-dataset":
+        with open(f"data/{test_dataset}.json", 'r') as f:
+            test_data_list = json.load(f)
+            for i, item in enumerate(test_data_list):
+                test_data[i] = item
+                
+    else:   
+        with open(f"data/{test_dataset}_test.json", 'r') as f:
+            test_data_list = json.load(f)
+            for i, item in enumerate(test_data_list):
+                test_data[i] = item
+                
     f = open(file, "r")
     count, valid, acc = 0, 0.0, 0.0
     for line in f:
@@ -129,10 +137,12 @@ def check_validity(file: str):
                         prompt = test_data[count-1].get("prompt", "")
                         if prompt:
                             keywords = extract_option_keywords(prompt)
+                            
                             if keywords:
                                 # use full response instead of partial
                                 full_response = answer_dict["predict"]
                                 matched_option = match_option_by_keyword_count(full_response, keywords)
+                                
                                 if matched_option:
                                     pred = matched_option
                                     valid += 1
@@ -144,4 +154,4 @@ def check_validity(file: str):
 
 
 if __name__ == "__main__":
-    fire.Fire(check_validity)
+    fire.Fire(calculate_acc)
