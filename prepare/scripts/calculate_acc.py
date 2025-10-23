@@ -58,7 +58,8 @@ def calculate_acc(file: str):
     test_dataset = [d for d in datasets if d in file][0]
     test_data = {}
     
-    if test_dataset == "science-dataset":
+    if "science-dataset" in file :
+        test_dataset = "science-dataset"
         with open(f"data/{test_dataset}.json", 'r') as f:
             test_data_list = json.load(f)
             for i, item in enumerate(test_data_list):
@@ -78,7 +79,7 @@ def calculate_acc(file: str):
         answer_dict = json.loads(line.strip())
         response = answer_dict["predict"][:20]
 
-        if "BoolQ" in file:
+        if "BoolQ" in file and "science-dataset" not in file:
             label = extract_answer_base(answer_dict["label"])[0]
             pred = response
             
