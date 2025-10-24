@@ -13,7 +13,7 @@
 </div>
 
 ## Updates
-* 🚀 **October 23, 2025**: Our **camera ready version** of NeurIPS 2025 is out! Also, we **release all DnD's pretrained checkpoints and logs** [here]()!
+* 🚀 **October 23, 2025**: Our **camera ready version** of NeurIPS 2025 is out! We fix some code minors and will update **all DnD's pretrained checkpoints and logs** [here](https://huggingface.co/datasets/Jerrylz/DnD-checkpoints-and-logs)!
 * 🚀 **September 19, 2025**: **DnD** has been accepted by **NeurIPS 2025**!
 
 ## 🧭 Contents
