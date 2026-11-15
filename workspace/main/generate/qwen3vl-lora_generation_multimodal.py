@@ -225,22 +225,43 @@ def main(eval_dataset: str, test_dataset: str):
     print("==> Start testing..")
 
     for i in range(config["real_length"]):
+        # VLMEvalKit's Qwen2VLChat picks the Qwen2.5-VL class from "2.5" in model_path (older versions)
+        merged_path = f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged_Qwen2.5-VL"
         args = [
             "--base_model_name",
             "./models/Qwen2.5-VL-3B-Instruct",
             "--output_dir",
-            f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
+            merged_path,
             "--lora_model_path",
             f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}",
         ]
 
         subprocess.run(["python", "./benchmark/merge_lora.py"] + args)
-        subprocess.run(["python", "./benchmark/VLMEvalkKit/run.py" "--config", "./benchmark/VLMEvalKit/config.json"])
+
+        # evaluate the merged model: copy the benchmark config with model_path set to the merged model
+        eval_config_name = {"Math-Vision": "config_vision.json", "Math-Vista": "config_vista.json"}[test_dataset]
+        with open(f"./benchmark/VLMEvalKit/{eval_config_name}", "r") as f:
+            eval_config = json.load(f)
+        for model_config in eval_config["model"].values():
+            model_config["model_path"] = merged_path
+        eval_config_path = f"{merged_path}/vlmevalkit_config.json"
+        with open(eval_config_path, "w") as f:
+            json.dump(eval_config, f, indent=4)
+        subprocess.run(
+            [
+                "python",
+                "./benchmark/VLMEvalKit/run.py",
+                "--config",
+                eval_config_path,
+                "--work-dir",
+                f"./outputs/{eval_dataset}T_on_{test_dataset}V_{i}",
+            ]
+        )
 
         import shutil
 
         shutil.rmtree(
-            f"{TEST_ROOT}/{eval_dataset}T_on_{test_dataset}V_{i}_merged",
+            merged_path,
         )
 
 
