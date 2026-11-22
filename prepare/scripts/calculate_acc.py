@@ -38,13 +38,13 @@ def extract_option_keywords(prompt: str):
 
 
 def match_option_by_keyword_count(response: str, keywords: dict):
-    response_lower = response.lower()
+    response_words = re.findall(r"\w+", response.lower())
     option_counts = {}
     
     for option, words in keywords.items():
         count = 0
-        for word in words:
-            count += response_lower.count(word)
+        for word in re.findall(r"\w+", words.lower()):
+            count += response_words.count(word)
         option_counts[option] = count
     
     # return the choice that occurs most often
